@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="450.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.summer26.sec01.group06.apbn.controller.VerifyPassportController">
+
+    <children>
+
+        <Button fx:id="btnBack" layoutX="20" layoutY="20" onAction="#goBack" prefWidth="90" style="-fx-background-color: red; -fx-font-weight: bold; -fx-text-fill: white;" text="Back" />
+
+        <Label layoutX="220" layoutY="25" text="Passport Verification" textFill="#15417d">
+
+            <font>
+                <Font name="System Bold" size="24" />
+            </font>
+
+        </Label>
+
+        <Label layoutX="70" layoutY="120" text="Passport Number :" />
+
+        <TextField fx:id="txtPassport" layoutX="220" layoutY="115" prefWidth="220" promptText="Enter Passport Number" />
+
+        <Button fx:id="btnVerify" layoutX="479.0" layoutY="113.0" onAction="#verifyPassport" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;" text="Verify">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+
+        <Label layoutX="70" layoutY="220" text="Verification Result :" />
+
+        <Label fx:id="lblResult" layoutX="230" layoutY="220" text="Not Verified" />
+
+    </children>
+
+</AnchorPane>
