@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0"
+            prefWidth="700.0"
+            style="-fx-background-color: #f4f8fb;"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.summer26.sec01.group06.apbn.controller.FlightScheduleController">
+
+    <children>
+
+        <!-- Back Button -->
+        <Button fx:id="btnBack"
+                layoutX="20.0"
+                layoutY="20.0"
+                prefHeight="35.0"
+                prefWidth="90.0"
+                text="⬅ Back"
+                onAction="#goBack"
+                style="-fx-background-color:#dc3545;
+                       -fx-text-fill:white;
+                       -fx-font-size:14px;
+                       -fx-font-weight:bold;
+                       -fx-background-radius:8;" />
+
+        <!-- Title -->
+        <Label layoutX="220.0"
+               layoutY="20.0"
+               text="Flight Schedule"
+               textFill="#15417d">
+
+            <font>
+                <Font name="System Bold" size="26.0"/>
+            </font>
+
+        </Label>
+
+        <!-- Flight Table -->
+        <TableView fx:id="tableFlights"
+                   layoutX="30.0"
+                   layoutY="80.0"
+                   prefHeight="380.0"
+                   prefWidth="640.0"
+                   style="-fx-font-size:13px;">
+
+            <columns>
+
+                <TableColumn fx:id="colFlightNo"
+                             prefWidth="120.0"
+                             text="Flight No"/>
+
+                <TableColumn fx:id="colDestination"
+                             prefWidth="170.0"
+                             text="Destination"/>
+
+                <TableColumn fx:id="colDeparture"
+                             prefWidth="170.0"
+                             text="Departure Time"/>
+
+                <TableColumn fx:id="colGate"
+                             prefWidth="90.0"
+                             text="Gate"/>
+
+                <TableColumn fx:id="colStatus"
+                             prefWidth="90.0"
+                             text="Status"/>
+
+            </columns>
+
+        </TableView>
+
+    </children>
+
+</AnchorPane>

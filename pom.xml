@@ -61,7 +61,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                com.summer26.sec01.group06.apbn/com.summer26.sec01.group06.apbn.HelloApplication
+                                com.summer26.sec01.group06.apbn/com.summer26.sec01.group06.apbn.MainApplication
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
