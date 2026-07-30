@@ -12,10 +12,10 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class VerifyPassportController {
+public class SupervisorViewPassengerController {
 
     @FXML
-    private TextField txtPassport;
+    private TextField txtPassengerId;
 
     @FXML
     private Label lblResult;
@@ -24,12 +24,12 @@ public class VerifyPassportController {
     private Button btnBack;
 
     @FXML
-    private void verifyPassport() {
+    private void searchPassenger() {
 
-        String passport = txtPassport.getText().trim();
+        String passengerId = txtPassengerId.getText().trim();
 
-        if (passport.isEmpty()) {
-            lblResult.setText("Please enter passport number.");
+        if (passengerId.isEmpty()) {
+            lblResult.setText("Please enter Passenger ID.");
             return;
         }
 
@@ -43,11 +43,12 @@ public class VerifyPassportController {
 
                 String[] data = line.split(",");
 
-                if (data.length >= 6 && data[2].equalsIgnoreCase(passport)) {
+                if (data.length >= 6 && data[0].equalsIgnoreCase(passengerId)) {
 
                     lblResult.setText(
-                            "Passport Verified\n\n"
-                                    + "Passenger : " + data[1]
+                            "Passenger Information\n\n"
+                                    + "Passenger ID : " + data[0]
+                                    + "\nName : " + data[1]
                                     + "\nPassport : " + data[2]
                                     + "\nNationality : " + data[3]
                                     + "\nFlight : " + data[4]
@@ -59,24 +60,35 @@ public class VerifyPassportController {
             }
 
             if (!found) {
-                lblResult.setText("Invalid Passport");
+                lblResult.setText("Passenger Not Found.");
             }
 
         } catch (IOException e) {
+
             lblResult.setText("Error reading passengers.txt");
+            e.printStackTrace();
         }
+    }
+
+    @FXML
+    private void clearData() {
+
+        txtPassengerId.clear();
+        lblResult.setText("");
     }
 
     @FXML
     private void goBack() throws IOException {
 
         FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("/com/summer26/sec01/group06/apbn/fxml/immigration-dashboard.fxml"));
+                getClass().getResource("/com/summer26/sec01/group06/apbn/fxml/supervisor-dashboard.fxml"));
+
+        Scene scene = new Scene(loader.load());
 
         Stage stage = (Stage) btnBack.getScene().getWindow();
 
-        stage.setScene(new Scene(loader.load()));
-        stage.setTitle("Immigration Dashboard");
+        stage.setScene(scene);
+        stage.setTitle("Supervisor Dashboard");
         stage.show();
     }
 }

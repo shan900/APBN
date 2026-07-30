@@ -7,81 +7,161 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.summer26.sec01.group06.apbn.controller.PassengerController">
+<AnchorPane prefHeight="600.0"
+            prefWidth="800.0"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.summer26.sec01.group06.apbn.controller.PassengerScanController">
 
    <children>
 
-      <Button fx:id="btnBack" layoutX="55.0" layoutY="54.0" onAction="#goBack" prefHeight="35.0" prefWidth="83.0" style="-fx-background-color:red; -fx-text-fill:white; -fx-font-weight:bold;" text="⬅ Back" />
+      <Button fx:id="btnBack"
+              layoutX="55.0"
+              layoutY="54.0"
+              prefHeight="35.0"
+              prefWidth="83.0"
+              text="⬅ Back"
+              onAction="#goBack"
+              style="-fx-background-color:red; -fx-text-fill:white; -fx-font-weight:bold;" />
 
-      <Label layoutX="290.0" layoutY="54.0" prefHeight="45.0" prefWidth="233.0" text="Passenger Scan" textFill="#15417d">
+      <Label layoutX="290.0"
+             layoutY="54.0"
+             prefHeight="45.0"
+             prefWidth="233.0"
+             text="Passenger Scan"
+             textFill="#15417d">
+
          <font>
-            <Font name="System Bold" size="30" />
+            <Font name="System Bold" size="30"/>
          </font>
+
       </Label>
 
-      <Label layoutX="37.0" layoutY="173.0" text="Enter Passenger Information">
+      <Label layoutX="37.0"
+             layoutY="173.0"
+             text="Enter Passenger Information">
+
          <font>
-            <Font name="System Bold" size="18" />
+            <Font name="System Bold" size="18"/>
          </font>
+
       </Label>
 
-      <Label layoutX="41.0" layoutY="262.0" text="Passenger ID :">
+      <Label layoutX="41.0"
+             layoutY="262.0"
+             text="Passenger ID :">
+
          <font>
-            <Font size="16" />
+            <Font size="16"/>
          </font>
+
       </Label>
 
-      <TextField fx:id="txtPassengerId" layoutX="175.0" layoutY="262.0" promptText="Enter Passenger ID" />
+      <TextField fx:id="txtPassengerId"
+                 layoutX="175.0"
+                 layoutY="262.0"
+                 promptText="Enter Passenger ID"/>
 
-      <Label layoutX="41.0" layoutY="316.0" text="Name :">
+      <Label layoutX="41.0"
+             layoutY="316.0"
+             text="Name :">
+
          <font>
-            <Font size="16" />
+            <Font size="16"/>
          </font>
+
       </Label>
 
-      <TextField fx:id="txtName" layoutX="175.0" layoutY="316.0" promptText="Enter Name" />
+      <TextField fx:id="txtName"
+                 layoutX="175.0"
+                 layoutY="316.0"
+                 promptText="Enter Name"/>
 
-      <Label layoutX="41.0" layoutY="374.0" text="Passport No :">
+      <Label layoutX="41.0"
+             layoutY="374.0"
+             text="Passport No :">
+
          <font>
-            <Font size="16" />
+            <Font size="16"/>
          </font>
+
       </Label>
 
-      <TextField fx:id="txtPassport" layoutX="175.0" layoutY="374.0" promptText="Enter Passport Number" />
+      <TextField fx:id="txtPassport"
+                 layoutX="175.0"
+                 layoutY="374.0"
+                 promptText="Enter Passport Number"/>
 
-      <Label layoutX="45.0" layoutY="435.0" text="Nationality :">
+      <Label layoutX="45.0"
+             layoutY="435.0"
+             text="Nationality :">
+
          <font>
-            <Font size="16" />
+            <Font size="16"/>
          </font>
+
       </Label>
 
-      <TextField fx:id="txtNationality" layoutX="175.0" layoutY="435.0" promptText="Enter Nationality" />
+      <TextField fx:id="txtNationality"
+                 layoutX="175.0"
+                 layoutY="435.0"
+                 promptText="Enter Nationality"/>
 
-      <Label layoutX="48.0" layoutY="498.0" text="Gender :">
+      <Label layoutX="48.0"
+             layoutY="498.0"
+             text="Gender :">
+
          <font>
-            <Font size="16" />
+            <Font size="16"/>
          </font>
+
       </Label>
 
-      <ComboBox fx:id="cmbGender" layoutX="175.0" layoutY="498.0" prefWidth="150.0" promptText="Select Gender" />
+      <ComboBox fx:id="cmbGender"
+                layoutX="175.0"
+                layoutY="498.0"
+                prefWidth="150.0"
+                promptText="Select Gender"/>
 
-      <Label layoutX="435.0" layoutY="262.0" text="Flight No :">
+      <Label layoutX="435.0"
+             layoutY="262.0"
+             text="Flight No :">
+
          <font>
-            <Font size="16" />
+            <Font size="16"/>
          </font>
+
       </Label>
 
-      <TextField fx:id="txtFlight" layoutX="572.0" layoutY="262.0" promptText="Enter Flight Number" />
+      <!-- Fixed -->
+      <TextField fx:id="txtFlightNo"
+                 layoutX="572.0"
+                 layoutY="262.0"
+                 promptText="Enter Flight Number"/>
 
-      <Label layoutX="435.0" layoutY="316.0" text="Gate :">
+      <Label layoutX="435.0"
+             layoutY="316.0"
+             text="Gate :">
+
          <font>
-            <Font size="16" />
+            <Font size="16"/>
          </font>
+
       </Label>
 
-      <TextField fx:id="txtGate" layoutX="572.0" layoutY="316.0" promptText="Enter Gate Number" />
+      <TextField fx:id="txtGate"
+                 layoutX="572.0"
+                 layoutY="316.0"
+                 promptText="Enter Gate Number"/>
 
-      <Button fx:id="btnScan" layoutX="482.0" layoutY="412.0" onAction="#scanPassenger" prefHeight="40.0" prefWidth="180.0" style="-fx-background-color:#4CAF50; -fx-text-fill:white; -fx-font-weight:bold;" text="Scan Passenger" />
+      <Button fx:id="btnScan"
+              layoutX="482.0"
+              layoutY="412.0"
+              prefHeight="40.0"
+              prefWidth="180.0"
+              text="Scan Passenger"
+              onAction="#scanPassenger"
+              style="-fx-background-color:#4CAF50; -fx-text-fill:white; -fx-font-weight:bold;" />
 
    </children>
 

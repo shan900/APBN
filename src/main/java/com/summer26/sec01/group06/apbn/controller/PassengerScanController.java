@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class PassengerController {
+public class PassengerScanController {
 
     @FXML
     private TextField txtPassengerId;
@@ -35,7 +35,7 @@ public class PassengerController {
     @FXML
     public void initialize() {
 
-        System.out.println("PassengerController Loaded");
+        System.out.println("PassengerScanController Loaded");
 
         cmbGender.getItems().addAll(
                 "Male",
@@ -89,11 +89,11 @@ public class PassengerController {
     private void goBack() throws IOException {
 
         FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("/com/summer26/sec01/group06/apbn/fxml/officer-dashboard.fxml"));
+                getClass().getResource("/com/summer26/sec01/group06/apbn/fxml/passenger-dashboard.fxml"));
 
         Stage stage = (Stage) btnBack.getScene().getWindow();
         stage.setScene(new Scene(loader.load()));
-        stage.setTitle("Officer Dashboard");
+        stage.setTitle("Passenger Dashboard");
         stage.show();
     }
 }

@@ -3,6 +3,7 @@ package com.summer26.sec01.group06.apbn.controller;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
@@ -29,84 +30,121 @@ public class OfficerController {
     // Scan Passenger
     // ===========================
     @FXML
-    private void openPassengerScan() throws IOException {
+    private void openPassengerScan() {
 
-        FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("/com/summer26/sec01/group06/apbn/fxml/passenger-scan.fxml"));
+        try {
 
-        Scene scene = new Scene(loader.load());
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/com/summer26/sec01/group06/apbn/fxml/passenger.fxml"));
 
-        Stage stage = (Stage) btnScanPassenger.getScene().getWindow();
-        stage.setScene(scene);
-        stage.setTitle("Passenger Scan");
-        stage.show();
+            Stage stage = (Stage) btnScanPassenger.getScene().getWindow();
+            stage.setScene(new Scene(loader.load()));
+            stage.setTitle("Passenger Scan");
+            stage.show();
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
+        }
     }
 
     // ===========================
     // Verify Passport
     // ===========================
     @FXML
-    private void verifyPassport() throws IOException {
+    private void verifyPassport() {
 
-        FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("/com/summer26/sec01/group06/apbn/fxml/verify-passport.fxml"));
+        try {
 
-        Scene scene = new Scene(loader.load());
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/com/summer26/sec01/group06/apbn/fxml/officer-verify-passport.fxml"));
 
-        Stage stage = (Stage) btnVerifyPassport.getScene().getWindow();
-        stage.setScene(scene);
-        stage.setTitle("Verify Passport");
-        stage.show();
+            Stage stage = (Stage) btnVerifyPassport.getScene().getWindow();
+            stage.setScene(new Scene(loader.load()));
+            stage.setTitle("Verify Passport");
+            stage.show();
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("FXML Error");
+            alert.setHeaderText(null);
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
+        }
     }
 
     // ===========================
     // Search Passenger
     // ===========================
     @FXML
-    private void searchPassenger() throws IOException {
+    private void searchPassenger() {
 
-        FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("/com/summer26/sec01/group06/apbn/fxml/search-passenger.fxml"));
+        try {
 
-        Scene scene = new Scene(loader.load());
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/com/summer26/sec01/group06/apbn/fxml/search-passenger.fxml"));
 
-        Stage stage = (Stage) btnSearchPassenger.getScene().getWindow();
-        stage.setScene(scene);
-        stage.setTitle("Search Passenger");
-        stage.show();
+            Stage stage = (Stage) btnSearchPassenger.getScene().getWindow();
+            stage.setScene(new Scene(loader.load()));
+            stage.setTitle("Search Passenger");
+            stage.show();
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
     }
 
     // ===========================
-    // View Flight Schedule
+    // Flight Schedule
     // ===========================
     @FXML
-    private void viewFlights() throws IOException {
+    private void viewFlights() {
 
-        FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("/com/summer26/sec01/group06/apbn/fxml/flight-schedule.fxml"));
+        try {
 
-        Scene scene = new Scene(loader.load());
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/com/summer26/sec01/group06/apbn/fxml/flight-schedule.fxml"));
 
-        Stage stage = (Stage) btnFlightSchedule.getScene().getWindow();
-        stage.setScene(scene);
-        stage.setTitle("Flight Schedule");
-        stage.show();
+            Stage stage = (Stage) btnFlightSchedule.getScene().getWindow();
+            stage.setScene(new Scene(loader.load()));
+            stage.setTitle("Flight Schedule");
+            stage.show();
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
     }
 
     // ===========================
     // Logout
     // ===========================
     @FXML
-    private void logout() throws IOException {
+    private void logout() {
 
-        FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("/com/summer26/sec01/group06/apbn/fxml/login.fxml"));
+        try {
 
-        Scene scene = new Scene(loader.load());
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/com/summer26/sec01/group06/apbn/fxml/login.fxml"));
 
-        Stage stage = (Stage) btnLogout.getScene().getWindow();
-        stage.setScene(scene);
-        stage.setTitle("Login");
-        stage.show();
+            Stage stage = (Stage) btnLogout.getScene().getWindow();
+            stage.setScene(new Scene(loader.load()));
+            stage.setTitle("Login");
+            stage.show();
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
     }
 }

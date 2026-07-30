@@ -12,7 +12,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class VerifyPassportController {
+public class OfficerVerifyPassportController {
 
     @FXML
     private TextField txtPassport;
@@ -46,12 +46,12 @@ public class VerifyPassportController {
                 if (data.length >= 6 && data[2].equalsIgnoreCase(passport)) {
 
                     lblResult.setText(
-                            "Passport Verified\n\n"
-                                    + "Passenger : " + data[1]
-                                    + "\nPassport : " + data[2]
-                                    + "\nNationality : " + data[3]
-                                    + "\nFlight : " + data[4]
-                                    + "\nGate : " + data[5]);
+                            "Passport Verified\n\n" +
+                                    "Passenger : " + data[1] +
+                                    "\nPassport : " + data[2] +
+                                    "\nNationality : " + data[3] +
+                                    "\nFlight : " + data[4] +
+                                    "\nGate : " + data[5]);
 
                     found = true;
                     break;
@@ -59,7 +59,7 @@ public class VerifyPassportController {
             }
 
             if (!found) {
-                lblResult.setText("Invalid Passport");
+                lblResult.setText("❌ Invalid Passport");
             }
 
         } catch (IOException e) {
@@ -71,12 +71,13 @@ public class VerifyPassportController {
     private void goBack() throws IOException {
 
         FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("/com/summer26/sec01/group06/apbn/fxml/immigration-dashboard.fxml"));
+                getClass().getResource("/com/summer26/sec01/group06/apbn/fxml/officer-dashboard.fxml"));
+
+        Scene scene = new Scene(loader.load());
 
         Stage stage = (Stage) btnBack.getScene().getWindow();
-
-        stage.setScene(new Scene(loader.load()));
-        stage.setTitle("Immigration Dashboard");
+        stage.setScene(scene);
+        stage.setTitle("Officer Dashboard");
         stage.show();
     }
 }

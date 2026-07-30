@@ -38,7 +38,6 @@ public class LoginController {
                 stage.setScene(scene);
                 stage.setTitle("Officer Dashboard");
                 stage.show();
-
             }
 
             // Supervisor Login
@@ -53,7 +52,32 @@ public class LoginController {
                 stage.setScene(scene);
                 stage.setTitle("Supervisor Dashboard");
                 stage.show();
+            }
+            // Passenger Login
+            else if (username.equals("passenger") && password.equals("123")) {
 
+                FXMLLoader loader = new FXMLLoader(
+                        getClass().getResource("/com/summer26/sec01/group06/apbn/fxml/passenger-dashboard.fxml"));
+
+                Scene scene = new Scene(loader.load());
+
+                Stage stage = (Stage) txtUsername.getScene().getWindow();
+                stage.setScene(scene);
+                stage.setTitle("Passenger Dashboard");
+                stage.show();
+            }
+            // Admin Login
+            else if (username.equals("admin") && password.equals("123")) {
+
+                FXMLLoader loader = new FXMLLoader(
+                        getClass().getResource("/com/summer26/sec01/group06/apbn/fxml/admin-dashboard.fxml"));
+
+                Scene scene = new Scene(loader.load());
+
+                Stage stage = (Stage) txtUsername.getScene().getWindow();
+                stage.setScene(scene);
+                stage.setTitle("Admin Dashboard");
+                stage.show();
             }
 
             // Invalid Login
@@ -64,7 +88,6 @@ public class LoginController {
                 alert.setHeaderText(null);
                 alert.setContentText("Invalid Username or Password");
                 alert.showAndWait();
-
             }
 
         } catch (IOException e) {

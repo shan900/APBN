@@ -23,7 +23,7 @@ public class DashboardController {
     private void openPassengerScan() throws IOException {
 
         FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("/com/summer26/sec01/group06/apbn/fxml/passenger-scan.fxml"));
+                getClass().getResource("/com/summer26/sec01/group06/apbn/fxml/passenger.fxml"));
 
         Scene scene = new Scene(loader.load());
 

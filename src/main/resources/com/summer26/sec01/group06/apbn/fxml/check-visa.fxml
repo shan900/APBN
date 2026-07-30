@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.summer26.sec01.group06.apbn.controller.CheckVisaController"
+            style="-fx-background-color:#f4f6f9;">
+
+    <top>
+        <Label text="CHECK VISA"
+               BorderPane.alignment="CENTER"
+               style="-fx-background-color:#2E7D32;
+                      -fx-text-fill:white;
+                      -fx-font-size:24px;
+                      -fx-font-weight:bold;
+                      -fx-padding:15px;
+                      -fx-max-width:Infinity;
+                      -fx-alignment:center;"/>
+    </top>
+
+    <center>
+
+        <VBox spacing="18"
+              alignment="CENTER">
+
+            <padding>
+                <Insets top="30" right="30" bottom="30" left="30"/>
+            </padding>
+
+            <TextField fx:id="txtPassport"
+                       promptText="Enter Passport Number"
+                       prefWidth="300"/>
+
+            <TextField fx:id="txtVisaType"
+                       promptText="Visa Type"
+                       editable="false"
+                       prefWidth="300"/>
+
+            <TextField fx:id="txtExpiryDate"
+                       promptText="Expiry Date"
+                       editable="false"
+                       prefWidth="300"/>
+
+            <Label fx:id="lblStatus"
+                   style="-fx-font-size:16px;
+                          -fx-font-weight:bold;
+                          -fx-text-fill:#2E7D32;"/>
+
+            <HBox spacing="15"
+                  alignment="CENTER">
+
+                <Button text="Verify"
+                        prefWidth="110"
+                        onAction="#verifyVisa"
+                        style="-fx-background-color:#4CAF50;
+                               -fx-text-fill:white;
+                               -fx-font-weight:bold;"/>
+
+                <Button text="Clear"
+                        prefWidth="110"
+                        onAction="#clearData"
+                        style="-fx-background-color:#FF9800;
+                               -fx-text-fill:white;
+                               -fx-font-weight:bold;"/>
+
+                <Button fx:id="btnBack"
+                        text="Back"
+                        prefWidth="110"
+                        onAction="#goBack"
+                        style="-fx-background-color:#1976D2;
+                               -fx-text-fill:white;
+                               -fx-font-weight:bold;"/>
+
+            </HBox>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>

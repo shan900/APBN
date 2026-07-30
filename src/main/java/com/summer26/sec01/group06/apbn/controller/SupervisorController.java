@@ -20,13 +20,15 @@ public class SupervisorController {
         stage.show();
     }
 
+    // View All Passenger
     public void viewPassengers(ActionEvent event) throws IOException {
 
         openWindow(event,
-                "/com/summer26/sec01/group06/apbn/fxml/view-passengers.fxml");
+                "/com/summer26/sec01/group06/apbn/fxml/supervisor-view-passenger.fxml");
 
     }
 
+    // View Flight Schedule
     public void viewFlightSchedule(ActionEvent event) throws IOException {
 
         openWindow(event,
@@ -34,6 +36,7 @@ public class SupervisorController {
 
     }
 
+    // View Officers
     public void viewOfficers(ActionEvent event) throws IOException {
 
         openWindow(event,
@@ -41,6 +44,7 @@ public class SupervisorController {
 
     }
 
+    // Generate Report
     public void generateReport(ActionEvent event) throws IOException {
 
         openWindow(event,
@@ -48,6 +52,7 @@ public class SupervisorController {
 
     }
 
+    // Logout
     public void logout(ActionEvent event) throws IOException {
 
         openWindow(event,

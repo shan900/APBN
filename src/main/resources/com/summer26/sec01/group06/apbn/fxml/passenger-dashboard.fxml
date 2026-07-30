@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0"
+            prefWidth="900.0"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.summer26.sec01.group06.apbn.controller.PassengerDashboardController"
+            style="-fx-background-color:#f4f6f9;">
+
+    <Label layoutX="285.0"
+           layoutY="25.0"
+           text="Passenger Dashboard"
+           style="-fx-font-size:28px; -fx-font-weight:bold; -fx-text-fill:#1f2937;" />
+
+    <Button fx:id="btnScan"
+            layoutX="70.0"
+            layoutY="100.0"
+            prefHeight="45.0"
+            prefWidth="300.0"
+            text="Passenger Scan"
+            onAction="#passengerScan"/>
+
+    <Button fx:id="btnRequest"
+            layoutX="520.0"
+            layoutY="100.0"
+            prefHeight="45.0"
+            prefWidth="300.0"
+            text="Request Security Assistance"
+            onAction="#requestSecurityAssistance"/>
+
+    <Button fx:id="btnLostProperty"
+            layoutX="70.0"
+            layoutY="180.0"
+            prefHeight="45.0"
+            prefWidth="300.0"
+            text="Report Lost Property"
+            onAction="#reportLostProperty"/>
+
+    <Button fx:id="btnStatus"
+            layoutX="520.0"
+            layoutY="180.0"
+            prefHeight="45.0"
+            prefWidth="300.0"
+            text="Security Clearance Status"
+            onAction="#securityClearanceStatus"/>
+
+    <Button fx:id="btnUpdate"
+            layoutX="70.0"
+            layoutY="260.0"
+            prefHeight="45.0"
+            prefWidth="300.0"
+            text="Update Passenger Information"
+            onAction="#updatePassengerInformation"/>
+
+    <Button fx:id="btnDeclare"
+            layoutX="520.0"
+            layoutY="260.0"
+            prefHeight="45.0"
+            prefWidth="300.0"
+            text="Declare Restricted Item"
+            onAction="#declareRestrictedItem"/>
+
+    <Button fx:id="btnSupport"
+            layoutX="70.0"
+            layoutY="340.0"
+            prefHeight="45.0"
+            prefWidth="300.0"
+            text="Special Security Support"
+            onAction="#specialSecuritySupport"/>
+
+    <Button fx:id="btnNotification"
+            layoutX="520.0"
+            layoutY="340.0"
+            prefHeight="45.0"
+            prefWidth="300.0"
+            text="Emergency Notifications"
+            onAction="#emergencyNotifications"/>
+
+    <Button fx:id="btnLogout"
+            layoutX="350.0"
+            layoutY="470.0"
+            prefHeight="45.0"
+            prefWidth="200.0"
+            text="Logout"
+            onAction="#logout"/>
+
+</AnchorPane>
