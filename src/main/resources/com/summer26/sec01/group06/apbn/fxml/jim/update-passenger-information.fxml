@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0"
+            prefWidth="900.0"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.summer26.sec01.group06.apbn.controller.jim.UpdatePassengerInformationController"
+            style="-fx-background-color:#f4f6f9;">
+
+    <Label layoutX="220.0"
+           layoutY="25.0"
+           text="Update Passenger Information"
+           style="-fx-font-size:28px; -fx-font-weight:bold;" />
+
+    <Label layoutX="90.0" layoutY="100.0" text="Name"/>
+    <TextField fx:id="txtName"
+               layoutX="250.0"
+               layoutY="95.0"
+               prefWidth="400.0"/>
+
+    <Label layoutX="90.0" layoutY="160.0" text="Passport No"/>
+    <TextField fx:id="txtPassport"
+               layoutX="250.0"
+               layoutY="155.0"
+               prefWidth="400.0"/>
+
+    <Label layoutX="90.0" layoutY="220.0" text="Phone"/>
+    <TextField fx:id="txtPhone"
+               layoutX="250.0"
+               layoutY="215.0"
+               prefWidth="400.0"/>
+
+    <Label layoutX="90.0" layoutY="280.0" text="Email"/>
+    <TextField fx:id="txtEmail"
+               layoutX="250.0"
+               layoutY="275.0"
+               prefWidth="400.0"/>
+
+    <Button layoutX="250.0"
+            layoutY="420.0"
+            prefWidth="150.0"
+            text="Update"
+            onAction="#updateInformation"/>
+
+    <Button layoutX="500.0"
+            layoutY="420.0"
+            prefWidth="150.0"
+            text="Back"
+            onAction="#back"/>
+
+</AnchorPane>

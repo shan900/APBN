@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.summer26.sec01.group06.apbn.controller.jim.ManageFlightsController"
+            style="-fx-background-color:#f4f6f9;">
+
+    <top>
+        <Label text="MANAGE FLIGHTS"
+               BorderPane.alignment="CENTER"
+               style="-fx-background-color:#2E7D32;
+                      -fx-text-fill:white;
+                      -fx-font-size:22px;
+                      -fx-font-weight:bold;
+                      -fx-padding:15;
+                      -fx-max-width:Infinity;
+                      -fx-alignment:center;"/>
+    </top>
+
+    <center>
+
+        <VBox spacing="15" alignment="CENTER">
+
+            <padding>
+                <Insets top="30" right="30" bottom="30" left="30"/>
+            </padding>
+
+            <TextField fx:id="txtFlightNo"
+                       promptText="Flight Number"
+                       prefWidth="260"/>
+
+            <TextField fx:id="txtDestination"
+                       promptText="Destination"
+                       prefWidth="260"/>
+
+            <TextField fx:id="txtGate"
+                       promptText="Gate Number"
+                       prefWidth="260"/>
+
+            <HBox spacing="10" alignment="CENTER">
+
+                <Button text="Add"
+                        onAction="#addFlight"/>
+
+                <Button text="Update"
+                        onAction="#updateFlight"/>
+
+                <Button text="Delete"
+                        onAction="#deleteFlight"/>
+
+            </HBox>
+
+            <HBox spacing="10" alignment="CENTER">
+
+                <Button text="Clear"
+                        onAction="#clearData"/>
+
+                <Button text="Back"
+                        onAction="#goBack"/>
+
+            </HBox>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>

@@ -30,7 +30,7 @@ public class LoginController {
             if (username.equals("officer") && password.equals("123")) {
 
                 FXMLLoader loader = new FXMLLoader(
-                        getClass().getResource("/com/summer26/sec01/group06/apbn/fxml/officer-dashboard.fxml"));
+                        getClass().getResource("/com/summer26/sec01/group06/apbn/fxml/shan/officer-dashboard.fxml"));
 
                 Scene scene = new Scene(loader.load());
 
@@ -44,7 +44,7 @@ public class LoginController {
             else if (username.equals("supervisor") && password.equals("123")) {
 
                 FXMLLoader loader = new FXMLLoader(
-                        getClass().getResource("/com/summer26/sec01/group06/apbn/fxml/supervisor-dashboard.fxml"));
+                        getClass().getResource("/com/summer26/sec01/group06/apbn/fxml/shan/supervisor-dashboard.fxml"));
 
                 Scene scene = new Scene(loader.load());
 
@@ -57,7 +57,7 @@ public class LoginController {
             else if (username.equals("passenger") && password.equals("123")) {
 
                 FXMLLoader loader = new FXMLLoader(
-                        getClass().getResource("/com/summer26/sec01/group06/apbn/fxml/passenger-dashboard.fxml"));
+                        getClass().getResource("/com/summer26/sec01/group06/apbn/fxml/jim/passenger-dashboard.fxml"));
 
                 Scene scene = new Scene(loader.load());
 
@@ -70,7 +70,7 @@ public class LoginController {
             else if (username.equals("admin") && password.equals("123")) {
 
                 FXMLLoader loader = new FXMLLoader(
-                        getClass().getResource("/com/summer26/sec01/group06/apbn/fxml/admin-dashboard.fxml"));
+                        getClass().getResource("/com/summer26/sec01/group06/apbn/fxml/jim/admin-dashboard.fxml"));
 
                 Scene scene = new Scene(loader.load());
 

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.summer26.sec01.group06.apbn.controller.jim.ViewReportsController">
+
+    <top>
+
+        <Label text="SYSTEM REPORT"
+               BorderPane.alignment="CENTER"
+               style="-fx-background-color:#2E7D32;
+                      -fx-text-fill:white;
+                      -fx-font-size:22;
+                      -fx-font-weight:bold;
+                      -fx-padding:15;
+                      -fx-max-width:Infinity;
+                      -fx-alignment:center;"/>
+
+    </top>
+
+    <center>
+
+        <VBox alignment="CENTER" spacing="15">
+
+            <padding>
+                <Insets top="30"/>
+            </padding>
+
+            <Label text="Total Users : 4"
+                   style="-fx-font-size:18;"/>
+
+            <Label text="Total Flights : 15"
+                   style="-fx-font-size:18;"/>
+
+            <Label text="Total Passengers : 150"
+                   style="-fx-font-size:18;"/>
+
+            <Label text="Blacklisted Passengers : 2"
+                   style="-fx-font-size:18;"/>
+
+            <Button text="Back"
+                    onAction="#goBack"/>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>
