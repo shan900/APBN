@@ -35,7 +35,8 @@ public class ViewPassengerController {
 
         boolean found = false;
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("passengers.txt"))) {
+        try (BufferedReader reader = new BufferedReader(
+                new FileReader("data/passengers.txt"))) {
 
             String line;
 
@@ -43,16 +44,17 @@ public class ViewPassengerController {
 
                 String[] data = line.split(",");
 
-                if (data.length >= 6 && data[0].equalsIgnoreCase(passengerId)) {
+                if (data.length >= 6 &&
+                        data[0].trim().equalsIgnoreCase(passengerId)) {
 
                     lblResult.setText(
-                            "Passenger Information\n\n" +
-                                    "Passenger ID : " + data[0] +
-                                    "\nName : " + data[1] +
-                                    "\nPassport : " + data[2] +
-                                    "\nNationality : " + data[3] +
-                                    "\nFlight : " + data[4] +
-                                    "\nGate : " + data[5]);
+                            "Passenger Information\n\n"
+                                    + "Passenger ID : " + data[0]
+                                    + "\nName : " + data[1]
+                                    + "\nPassport : " + data[2]
+                                    + "\nNationality : " + data[3]
+                                    + "\nFlight : " + data[4]
+                                    + "\nGate : " + data[5]);
 
                     found = true;
                     break;
@@ -65,7 +67,7 @@ public class ViewPassengerController {
 
         } catch (IOException e) {
 
-            lblResult.setText("Error reading passengers.txt");
+            lblResult.setText("Error reading passenger file.");
             e.printStackTrace();
         }
     }

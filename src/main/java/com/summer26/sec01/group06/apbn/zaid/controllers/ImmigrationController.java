@@ -154,7 +154,7 @@ public class ImmigrationController {
 
             ObjectOutputStream out =
                     new ObjectOutputStream(
-                            new FileOutputStream("data/passengers.bin")
+                            new FileOutputStream("data/passengers.txt")
                     );
 
             out.writeObject(passenger);

@@ -2,39 +2,81 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0"
-            prefWidth="900.0"
+            prefWidth="800.0"
             xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.summer26.sec01.group06.apbn.controller.jim.SecurityClearanceStatusController"
-            style="-fx-background-color:#f4f6f9;">
+            fx:controller="com.summer26.sec01.group06.apbn.controller.jim.SecurityClearanceStatusController">
 
-    <Label layoutX="220.0"
-           layoutY="35.0"
-           text="Security Clearance Status"
-           style="-fx-font-size:28px; -fx-font-weight:bold;" />
+    <children>
 
-    <Label layoutX="100.0"
-           layoutY="180.0"
-           text="Current Status:"
-           style="-fx-font-size:18px;"/>
+        <Label layoutX="180.0"
+               layoutY="30.0"
+               text="Security Clearance Status">
 
-    <Label fx:id="lblStatus"
-           layoutX="270.0"
-           layoutY="180.0"
-           style="-fx-font-size:18px; -fx-font-weight:bold; -fx-text-fill:green;"/>
+            <font>
+                <Font size="28"/>
+            </font>
 
-    <Button layoutX="250.0"
-            layoutY="420.0"
-            prefWidth="150.0"
-            text="Refresh"
-            onAction="#refreshStatus"/>
+        </Label>
 
-    <Button layoutX="500.0"
-            layoutY="420.0"
-            prefWidth="150.0"
-            text="Back"
-            onAction="#back"/>
+        <!-- Passenger ID -->
+
+        <Label layoutX="90.0"
+               layoutY="100.0"
+               text="Passenger ID :" />
+
+        <TextField fx:id="txtPassengerId"
+                   layoutX="250.0"
+                   layoutY="95.0"
+                   prefWidth="220.0"
+                   promptText="Enter Passenger ID"/>
+
+        <Button fx:id="btnCheck"
+                layoutX="500.0"
+                layoutY="94.0"
+                prefWidth="120.0"
+                text="Check Status"
+                onAction="#checkStatus"/>
+
+        <!-- Status -->
+
+        <Label layoutX="90.0"
+               layoutY="200.0"
+               text="Current Status :">
+
+            <font>
+                <Font size="18"/>
+            </font>
+
+        </Label>
+
+        <Label fx:id="lblStatus"
+               layoutX="260.0"
+               layoutY="200.0"
+               prefWidth="400.0"
+               wrapText="true"
+               text="Not Checked"
+               style="-fx-font-size:18px; -fx-font-weight:bold; -fx-text-fill:green;"/>
+
+        <!-- Buttons -->
+
+        <Button fx:id="btnClear"
+                layoutX="180.0"
+                layoutY="450.0"
+                prefWidth="120.0"
+                text="Clear"
+                onAction="#clearFields"/>
+
+        <Button fx:id="btnBack"
+                layoutX="500.0"
+                layoutY="450.0"
+                prefWidth="120.0"
+                text="Back"
+                onAction="#back"/>
+
+    </children>
 
 </AnchorPane>

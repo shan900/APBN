@@ -2,38 +2,89 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0"
-            prefWidth="900.0"
+            prefWidth="800.0"
             xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.summer26.sec01.group06.apbn.controller.jim.RequestSecurityAssistanceController">
 
-    <Label layoutX="250.0"
-           layoutY="30.0"
-           text="Request Security Assistance"
-           style="-fx-font-size:26px; -fx-font-weight:bold;" />
+    <children>
 
-    <Label layoutX="80.0"
-           layoutY="100.0"
-           text="Describe Your Problem:" />
+        <Label layoutX="210.0"
+               layoutY="25.0"
+               text="Request Security Assistance">
+            <font>
+                <Font size="28"/>
+            </font>
+        </Label>
 
-    <TextArea fx:id="txtAssistance"
-              layoutX="80.0"
-              layoutY="130.0"
-              prefWidth="730.0"
-              prefHeight="220.0" />
+        <Label layoutX="80.0"
+               layoutY="90.0"
+               text="Passenger ID :" />
 
-    <Button layoutX="250.0"
-            layoutY="420.0"
-            prefWidth="150.0"
-            text="Submit"
-            onAction="#submitRequest" />
+        <TextField fx:id="txtPassengerId"
+                   layoutX="220.0"
+                   layoutY="85.0"
+                   prefWidth="250.0"/>
 
-    <Button layoutX="500.0"
-            layoutY="420.0"
-            prefWidth="150.0"
-            text="Back"
-            onAction="#back" />
+        <Button fx:id="btnSearch"
+                layoutX="500.0"
+                layoutY="84.0"
+                prefWidth="120.0"
+                text="Search"
+                onAction="#searchPassenger"/>
+
+        <Label layoutX="80.0"
+               layoutY="150.0"
+               text="Request Type :" />
+
+        <ComboBox fx:id="cmbType"
+                  layoutX="220.0"
+                  layoutY="145.0"
+                  prefWidth="250.0"/>
+
+        <Label layoutX="80.0"
+               layoutY="210.0"
+               text="Priority :" />
+
+        <ComboBox fx:id="cmbPriority"
+                  layoutX="220.0"
+                  layoutY="205.0"
+                  prefWidth="250.0"/>
+
+        <Label layoutX="80.0"
+               layoutY="270.0"
+               text="Description :" />
+
+        <TextArea fx:id="txtDescription"
+                  layoutX="220.0"
+                  layoutY="265.0"
+                  prefWidth="450.0"
+                  prefHeight="130.0"/>
+
+        <Button fx:id="btnSubmit"
+                layoutX="150.0"
+                layoutY="470.0"
+                prefWidth="120.0"
+                text="Submit"
+                onAction="#submitRequest"/>
+
+        <Button fx:id="btnClear"
+                layoutX="350.0"
+                layoutY="470.0"
+                prefWidth="120.0"
+                text="Clear"
+                onAction="#clearFields"/>
+
+        <Button fx:id="btnBack"
+                layoutX="550.0"
+                layoutY="470.0"
+                prefWidth="120.0"
+                text="Back"
+                onAction="#back"/>
+
+    </children>
 
 </AnchorPane>

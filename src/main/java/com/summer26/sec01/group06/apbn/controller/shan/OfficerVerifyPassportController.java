@@ -29,13 +29,14 @@ public class OfficerVerifyPassportController {
         String passport = txtPassport.getText().trim();
 
         if (passport.isEmpty()) {
-            lblResult.setText("Please enter passport number.");
+            lblResult.setText("Please enter Passport Number.");
             return;
         }
 
         boolean found = false;
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("passengers.txt"))) {
+        try (BufferedReader reader = new BufferedReader(
+                new FileReader("data/passengers.txt"))) {
 
             String line;
 
@@ -43,15 +44,18 @@ public class OfficerVerifyPassportController {
 
                 String[] data = line.split(",");
 
-                if (data.length >= 6 && data[2].equalsIgnoreCase(passport)) {
+                if (data.length >= 6 &&
+                        data[2].trim().equalsIgnoreCase(passport.trim())) {
 
                     lblResult.setText(
-                            "Passport Verified\n\n" +
-                                    "Passenger : " + data[1] +
+                            "✅ Passport Verified\n\n" +
+                                    "Passenger ID : " + data[0] +
+                                    "\nName : " + data[1] +
                                     "\nPassport : " + data[2] +
                                     "\nNationality : " + data[3] +
                                     "\nFlight : " + data[4] +
-                                    "\nGate : " + data[5]);
+                                    "\nGate : " + data[5]
+                    );
 
                     found = true;
                     break;
@@ -59,11 +63,12 @@ public class OfficerVerifyPassportController {
             }
 
             if (!found) {
-                lblResult.setText("❌ Invalid Passport");
+                lblResult.setText("❌ Passport Not Found!");
             }
 
         } catch (IOException e) {
-            lblResult.setText("Error reading passengers.txt");
+            lblResult.setText("Error reading data/passengers.txt");
+            e.printStackTrace();
         }
     }
 

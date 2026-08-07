@@ -11,15 +11,37 @@ import java.io.IOException;
 public class PassengerDashboardController {
 
     @FXML
-    private Button btnScan, btnRequest, btnLostProperty, btnStatus,
-            btnUpdate, btnDeclare, btnSupport, btnNotification, btnLogout;
+    private Button btnScan;
+
+    @FXML
+    private Button btnRequest;
+
+    @FXML
+    private Button btnLostProperty;
+
+    @FXML
+    private Button btnUpdate;
+
+    @FXML
+    private Button btnDeclare;
+
+    @FXML
+    private Button btnSupport;
+
+    @FXML
+    private Button btnNotification;
+
+    @FXML
+    private Button btnLogout;
 
     private void openPage(String fxml) throws IOException {
 
         FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("/com/summer26/sec01/group06/apbn/fxml/jim/" + fxml));
+                getClass().getResource(
+                        "/com/summer26/sec01/group06/apbn/fxml/jim/" + fxml));
 
         Stage stage = (Stage) btnScan.getScene().getWindow();
+
         stage.setScene(new Scene(loader.load()));
         stage.show();
     }
@@ -37,11 +59,6 @@ public class PassengerDashboardController {
     @FXML
     private void reportLostProperty() throws IOException {
         openPage("report-lost-property.fxml");
-    }
-
-    @FXML
-    private void securityClearanceStatus() throws IOException {
-        openPage("security-clearance-status.fxml");
     }
 
     @FXML
@@ -68,11 +85,15 @@ public class PassengerDashboardController {
     private void logout() throws IOException {
 
         FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("/com/summer26/sec01/group06/apbn/fxml/login.fxml"));
+                getClass().getResource(
+                        "/com/summer26/sec01/group06/apbn/fxml/login.fxml"));
 
         Stage stage = (Stage) btnLogout.getScene().getWindow();
+
         stage.setScene(new Scene(loader.load()));
         stage.setTitle("Login");
+
         stage.show();
     }
+
 }

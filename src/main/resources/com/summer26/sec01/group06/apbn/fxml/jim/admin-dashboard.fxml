@@ -6,59 +6,29 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane xmlns="http://javafx.com/javafx/21"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.summer26.sec01.group06.apbn.controller.jim.AdminController"
-            style="-fx-background-color:#f4f6f9;">
+<BorderPane style="-fx-background-color:#f4f6f9;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.summer26.sec01.group06.apbn.controller.jim.AdminController">
 
     <top>
-        <Label text="ADMIN DASHBOARD"
-               BorderPane.alignment="CENTER"
-               style="-fx-background-color:#2E7D32;
-                      -fx-text-fill:white;
-                      -fx-font-size:24px;
-                      -fx-font-weight:bold;
-                      -fx-padding:18;
-                      -fx-max-width:Infinity;
-                      -fx-alignment:center;"/>
+        <Label style="-fx-background-color:#2E7D32;                       -fx-text-fill:white;                       -fx-font-size:24px;                       -fx-font-weight:bold;                       -fx-padding:18;                       -fx-max-width:Infinity;                       -fx-alignment:center;" text="ADMIN DASHBOARD" BorderPane.alignment="CENTER" />
     </top>
 
     <center>
 
-        <VBox spacing="18"
-              alignment="CENTER">
+        <VBox alignment="CENTER" minHeight="450.0" minWidth="600.0" spacing="18">
 
             <padding>
-                <Insets top="40" right="40" bottom="40" left="40"/>
+                <Insets bottom="40" left="40" right="40" top="40" />
             </padding>
 
-            <Button text="Manage Officers"
-                    prefWidth="240"
-                    prefHeight="40"
-                    onAction="#manageOfficers"/>
+            <Button onAction="#manageOfficers" prefHeight="40" prefWidth="240" text="Manage Officers" />
 
-            <Button text="Manage Flights"
-                    prefWidth="240"
-                    prefHeight="40"
-                    onAction="#manageFlights"/>
+            <Button onAction="#manageFlights" prefHeight="40" prefWidth="240" text="Manage Flights" />
 
-            <Button text="View Users"
-                    prefWidth="240"
-                    prefHeight="40"
-                    onAction="#viewUsers"/>
+            <Button onAction="#viewUsers" prefHeight="40" prefWidth="240" text="View Users" />
 
-            <Button text="View Reports"
-                    prefWidth="240"
-                    prefHeight="40"
-                    onAction="#viewReports"/>
+            <Button onAction="#viewReports" prefHeight="40" prefWidth="240" text="View Reports" />
 
-            <Button text="Logout"
-                    prefWidth="240"
-                    prefHeight="40"
-                    style="-fx-background-color:#d32f2f;
-                           -fx-text-fill:white;
-                           -fx-font-weight:bold;"
-                    onAction="#logout"/>
+            <Button onAction="#logout" prefHeight="40" prefWidth="240" style="-fx-background-color:#d32f2f;                            -fx-text-fill:white;                            -fx-font-weight:bold;" text="Logout" />
 
         </VBox>
 

@@ -24,25 +24,23 @@ public class ReportController {
     @FXML
     public void initialize() {
 
-        lblPassengers.setText(String.valueOf(countPassengers()));
-
-        // Dummy values
-        lblFlights.setText("5");
-        lblOfficers.setText("2");
+        lblPassengers.setText(String.valueOf(countRecords("data/passengers.txt")));
+        lblFlights.setText(String.valueOf(countRecords("data/flights.txt")));
+        lblOfficers.setText(String.valueOf(countRecords("data/officers.txt")));
     }
 
-    private int countPassengers() {
+    private int countRecords(String fileName) {
 
         int count = 0;
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("passengers.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
 
             while (reader.readLine() != null) {
                 count++;
             }
 
         } catch (IOException e) {
-            e.printStackTrace();
+            // File না থাকলে 0 দেখাবে
         }
 
         return count;
@@ -57,6 +55,7 @@ public class ReportController {
         Stage stage = (Stage) lblPassengers.getScene().getWindow();
 
         stage.setScene(new Scene(loader.load()));
+        stage.setTitle("Supervisor Dashboard");
         stage.show();
     }
 }

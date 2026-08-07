@@ -51,7 +51,8 @@ public class SearchPassengerController {
 
         boolean found = false;
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("passengers.txt"))) {
+        try (BufferedReader reader = new BufferedReader(
+                new FileReader("data/passengers.txt"))) {
 
             String line;
 
@@ -75,15 +76,14 @@ public class SearchPassengerController {
             }
 
             if (!found) {
-
                 lblResult.setText("Passenger Not Found");
                 clearLabels();
-
             }
 
         } catch (IOException e) {
 
             lblResult.setText("Error reading passenger file.");
+            clearLabels();
             e.printStackTrace();
         }
     }

@@ -1,80 +1,105 @@
-package com.summer26.sec01.group06.apbn.controller.shan;
+package com.summer26.sec01.group06.apbn.controller.jim;
 
-import com.summer26.sec01.group06.apbn.model.Passenger;
-import com.summer26.sec01.group06.apbn.util.PassengerFileHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 
 public class PassengerScanController {
 
     @FXML
     private TextField txtPassengerId;
+
     @FXML
     private TextField txtName;
+
     @FXML
     private TextField txtPassport;
+
     @FXML
     private TextField txtNationality;
+
     @FXML
     private TextField txtFlightNo;
+
     @FXML
     private TextField txtGate;
+
     @FXML
-    private ComboBox<String> cmbGender;
+    private Label lblResult;
+
     @FXML
     private Button btnBack;
 
     @FXML
-    public void initialize() {
-
-        System.out.println("PassengerScanController Loaded");
-
-        cmbGender.getItems().addAll(
-                "Male",
-                "Female",
-                "Other"
-        );
-    }
-
-    @FXML
     private void scanPassenger() {
 
-        if (txtPassengerId.getText().isEmpty()
-                || txtName.getText().isEmpty()
-                || txtPassport.getText().isEmpty()
-                || txtNationality.getText().isEmpty()
-                || txtFlightNo.getText().isEmpty()
-                || txtGate.getText().isEmpty()
-                || cmbGender.getValue() == null) {
+        if (txtPassengerId.getText().trim().isEmpty()
+                || txtName.getText().trim().isEmpty()
+                || txtPassport.getText().trim().isEmpty()
+                || txtNationality.getText().trim().isEmpty()
+                || txtFlightNo.getText().trim().isEmpty()
+                || txtGate.getText().trim().isEmpty()) {
 
             Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText(null);
             alert.setContentText("Please fill all fields.");
             alert.showAndWait();
             return;
         }
 
-        Passenger passenger = new Passenger(
-                txtPassengerId.getText(),
-                txtName.getText(),
-                txtPassport.getText(),
-                txtNationality.getText(),
-                txtFlightNo.getText(),
-                txtGate.getText()
-        );
+        boolean found = false;
 
-        PassengerFileHandler.savePassenger(passenger);
+        try (BufferedReader reader =
+                     new BufferedReader(new FileReader("data/passengers.txt"))) {
 
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setContentText("Passenger scanned successfully.");
-        alert.showAndWait();
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+
+                String[] data = line.split(",");
+
+                if (data.length >= 6
+                        && data[0].trim().equalsIgnoreCase(txtPassengerId.getText().trim())
+                        && data[1].trim().equalsIgnoreCase(txtName.getText().trim())
+                        && data[2].trim().equalsIgnoreCase(txtPassport.getText().trim())
+                        && data[3].trim().equalsIgnoreCase(txtNationality.getText().trim())
+                        && data[4].trim().equalsIgnoreCase(txtFlightNo.getText().trim())
+                        && data[5].trim().equalsIgnoreCase(txtGate.getText().trim())) {
+
+                    found = true;
+                    break;
+                }
+            }
+
+            if (found) {
+
+                lblResult.setStyle("-fx-text-fill: green; -fx-font-size:18px; -fx-font-weight:bold;");
+                lblResult.setText("✅ Passenger Scan Successful");
+
+            } else {
+
+                lblResult.setStyle("-fx-text-fill: red; -fx-font-size:18px; -fx-font-weight:bold;");
+                lblResult.setText("❌ Passenger Not Scanned");
+            }
+
+        } catch (IOException e) {
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Unable to read passenger data.");
+            alert.showAndWait();
+        }
+    }
+    @FXML
+    private void clearFields() {
 
         txtPassengerId.clear();
         txtName.clear();
@@ -82,18 +107,24 @@ public class PassengerScanController {
         txtNationality.clear();
         txtFlightNo.clear();
         txtGate.clear();
-        cmbGender.getSelectionModel().clearSelection();
+
+        lblResult.setText("");
+
+        txtPassengerId.requestFocus();
     }
 
     @FXML
     private void goBack() throws IOException {
 
         FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("/com/summer26/sec01/group06/apbn/fxml/jim/passenger-dashboard.fxml"));
+                getClass().getResource(
+                        "/com/summer26/sec01/group06/apbn/fxml/jim/passenger-dashboard.fxml"));
 
         Stage stage = (Stage) btnBack.getScene().getWindow();
+
         stage.setScene(new Scene(loader.load()));
         stage.setTitle("Passenger Dashboard");
         stage.show();
     }
+
 }

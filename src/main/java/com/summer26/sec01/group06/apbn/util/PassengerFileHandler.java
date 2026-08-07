@@ -8,15 +8,17 @@ import java.io.IOException;
 
 public class PassengerFileHandler {
 
-    private static final String FILE_NAME = "passengers.txt";
+    private static final String FILE_NAME = "data/passengers.txt";
 
     public static void savePassenger(Passenger passenger) {
 
-        try (BufferedWriter writer = new BufferedWriter(
-                new FileWriter(FILE_NAME, true))) {
+        try (BufferedWriter writer =
+                     new BufferedWriter(new FileWriter(FILE_NAME, true))) {
 
             writer.write(passenger.toString());
             writer.newLine();
+
+            System.out.println("Passenger saved successfully.");
 
         } catch (IOException e) {
             e.printStackTrace();

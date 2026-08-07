@@ -2,53 +2,124 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0"
+<AnchorPane prefHeight="650.0"
             prefWidth="900.0"
             xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.summer26.sec01.group06.apbn.controller.jim.UpdatePassengerInformationController"
-            style="-fx-background-color:#f4f6f9;">
+            fx:controller="com.summer26.sec01.group06.apbn.controller.jim.UpdatePassengerInformationController">
 
-    <Label layoutX="220.0"
-           layoutY="25.0"
-           text="Update Passenger Information"
-           style="-fx-font-size:28px; -fx-font-weight:bold;" />
+    <children>
 
-    <Label layoutX="90.0" layoutY="100.0" text="Name"/>
-    <TextField fx:id="txtName"
-               layoutX="250.0"
-               layoutY="95.0"
-               prefWidth="400.0"/>
+        <Label layoutX="220.0"
+               layoutY="25.0"
+               text="Update Passenger Information"
+               style="-fx-font-size:28px; -fx-font-weight:bold;">
 
-    <Label layoutX="90.0" layoutY="160.0" text="Passport No"/>
-    <TextField fx:id="txtPassport"
-               layoutX="250.0"
-               layoutY="155.0"
-               prefWidth="400.0"/>
+            <font>
+                <Font size="28"/>
+            </font>
 
-    <Label layoutX="90.0" layoutY="220.0" text="Phone"/>
-    <TextField fx:id="txtPhone"
-               layoutX="250.0"
-               layoutY="215.0"
-               prefWidth="400.0"/>
+        </Label>
 
-    <Label layoutX="90.0" layoutY="280.0" text="Email"/>
-    <TextField fx:id="txtEmail"
-               layoutX="250.0"
-               layoutY="275.0"
-               prefWidth="400.0"/>
+        <!-- Passenger ID -->
 
-    <Button layoutX="250.0"
-            layoutY="420.0"
-            prefWidth="150.0"
-            text="Update"
-            onAction="#updateInformation"/>
+        <Label layoutX="80.0"
+               layoutY="90.0"
+               text="Passenger ID"/>
 
-    <Button layoutX="500.0"
-            layoutY="420.0"
-            prefWidth="150.0"
-            text="Back"
-            onAction="#back"/>
+        <TextField fx:id="txtPassengerId"
+                   layoutX="220.0"
+                   layoutY="85.0"
+                   prefWidth="250.0"
+                   promptText="Enter Passenger ID"/>
+
+        <Button fx:id="btnSearch"
+                layoutX="510.0"
+                layoutY="84.0"
+                prefWidth="120.0"
+                text="Search"
+                onAction="#searchPassenger"/>
+
+        <!-- Name -->
+
+        <Label layoutX="80.0"
+               layoutY="160.0"
+               text="Name"/>
+
+        <TextField fx:id="txtName"
+                   layoutX="220.0"
+                   layoutY="155.0"
+                   prefWidth="410.0"/>
+
+        <!-- Passport -->
+
+        <Label layoutX="80.0"
+               layoutY="220.0"
+               text="Passport No"/>
+
+        <TextField fx:id="txtPassport"
+                   layoutX="220.0"
+                   layoutY="215.0"
+                   prefWidth="410.0"/>
+
+        <!-- Nationality -->
+
+        <Label layoutX="80.0"
+               layoutY="280.0"
+               text="Nationality"/>
+
+        <TextField fx:id="txtNationality"
+                   layoutX="220.0"
+                   layoutY="275.0"
+                   prefWidth="410.0"/>
+
+        <!-- Flight -->
+
+        <Label layoutX="80.0"
+               layoutY="340.0"
+               text="Flight No"/>
+
+        <TextField fx:id="txtFlightNo"
+                   layoutX="220.0"
+                   layoutY="335.0"
+                   prefWidth="410.0"/>
+
+        <!-- Gate -->
+
+        <Label layoutX="80.0"
+               layoutY="400.0"
+               text="Gate"/>
+
+        <TextField fx:id="txtGate"
+                   layoutX="220.0"
+                   layoutY="395.0"
+                   prefWidth="410.0"/>
+
+        <!-- Buttons -->
+
+        <Button fx:id="btnUpdate"
+                layoutX="180.0"
+                layoutY="500.0"
+                prefWidth="120.0"
+                text="Update"
+                onAction="#updateInformation"/>
+
+        <Button fx:id="btnClear"
+                layoutX="360.0"
+                layoutY="500.0"
+                prefWidth="120.0"
+                text="Clear"
+                onAction="#clearFields"/>
+
+        <Button fx:id="btnBack"
+                layoutX="540.0"
+                layoutY="500.0"
+                prefWidth="120.0"
+                text="Back"
+                onAction="#back"/>
+
+    </children>
 
 </AnchorPane>

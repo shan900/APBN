@@ -12,6 +12,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 
 public class ViewOfficersController {
@@ -42,16 +44,33 @@ public class ViewOfficersController {
         colShift.setCellValueFactory(new PropertyValueFactory<>("shift"));
         colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
 
-        ObservableList<SecurityOfficer> list = FXCollections.observableArrayList(
+        ObservableList<SecurityOfficer> officerList = FXCollections.observableArrayList();
 
-                new SecurityOfficer("OF001", "Rahim Ahmed", "Morning", "Active"),
-                new SecurityOfficer("OF002", "Karim Hasan", "Evening", "Active"),
-                new SecurityOfficer("OF003", "John Smith", "Night", "On Duty"),
-                new SecurityOfficer("OF004", "Sarah Khan", "Morning", "Active")
+        try (BufferedReader reader = new BufferedReader(
+                new FileReader("data/officers.txt"))) {
 
-        );
+            String line;
 
-        tableOfficers.setItems(list);
+            while ((line = reader.readLine()) != null) {
+
+                String[] data = line.split(",");
+
+                if (data.length >= 4) {
+
+                    officerList.add(new SecurityOfficer(
+                            data[0].trim(),
+                            data[1].trim(),
+                            data[2].trim(),
+                            data[3].trim()
+                    ));
+                }
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        tableOfficers.setItems(officerList);
     }
 
     @FXML

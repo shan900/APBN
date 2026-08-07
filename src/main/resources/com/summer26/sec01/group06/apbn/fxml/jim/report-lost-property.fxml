@@ -2,48 +2,97 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0"
-            prefWidth="900.0"
+            prefWidth="800.0"
             xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.summer26.sec01.group06.apbn.controller.jim.ReportLostPropertyController"
-            style="-fx-background-color:#f4f6f9;">
+            fx:controller="com.summer26.sec01.group06.apbn.controller.jim.ReportLostPropertyController">
 
-    <Label layoutX="250.0"
-           layoutY="25.0"
-           text="Report Lost Property"
-           style="-fx-font-size:28px; -fx-font-weight:bold;" />
+    <children>
 
-    <Label layoutX="90.0"
-           layoutY="100.0"
-           text="Item Name :" />
+        <Label layoutX="210"
+               layoutY="20"
+               text="Report Lost Property">
 
-    <TextField fx:id="txtItemName"
-               layoutX="220.0"
-               layoutY="95.0"
-               prefWidth="400.0"/>
+            <font>
+                <Font size="28"/>
+            </font>
 
-    <Label layoutX="90.0"
-           layoutY="170.0"
-           text="Description :" />
+        </Label>
 
-    <TextArea fx:id="txtDescription"
-              layoutX="220.0"
-              layoutY="165.0"
-              prefWidth="500.0"
-              prefHeight="180.0"/>
+        <Label layoutX="70" layoutY="90" text="Passenger ID"/>
 
-    <Button layoutX="250.0"
-            layoutY="430.0"
-            prefWidth="150.0"
-            text="Submit"
-            onAction="#submitReport"/>
+        <TextField fx:id="txtPassengerId"
+                   layoutX="220"
+                   layoutY="85"
+                   prefWidth="220"/>
 
-    <Button layoutX="500.0"
-            layoutY="430.0"
-            prefWidth="150.0"
-            text="Back"
-            onAction="#back"/>
+        <Button fx:id="btnSearch"
+                layoutX="470"
+                layoutY="84"
+                text="Search"
+                onAction="#searchPassenger"/>
+
+        <Label layoutX="70"
+               layoutY="150"
+               text="Item Name"/>
+
+        <TextField fx:id="txtItemName"
+                   layoutX="220"
+                   layoutY="145"
+                   prefWidth="400"/>
+
+        <Label layoutX="70"
+               layoutY="210"
+               text="Lost Location"/>
+
+        <TextField fx:id="txtLocation"
+                   layoutX="220"
+                   layoutY="205"
+                   prefWidth="400"/>
+
+        <Label layoutX="70"
+               layoutY="270"
+               text="Lost Date"/>
+
+        <TextField fx:id="txtDate"
+                   layoutX="220"
+                   layoutY="265"
+                   prefWidth="400"/>
+
+        <Label layoutX="70"
+               layoutY="330"
+               text="Description"/>
+
+        <TextArea fx:id="txtDescription"
+                  layoutX="220"
+                  layoutY="325"
+                  prefWidth="420"
+                  prefHeight="120"/>
+
+        <Button fx:id="btnSubmit"
+                layoutX="170"
+                layoutY="500"
+                prefWidth="120"
+                text="Submit"
+                onAction="#submitReport"/>
+
+        <Button fx:id="btnClear"
+                layoutX="340"
+                layoutY="500"
+                prefWidth="120"
+                text="Clear"
+                onAction="#clearFields"/>
+
+        <Button fx:id="btnBack"
+                layoutX="510"
+                layoutY="500"
+                prefWidth="120"
+                text="Back"
+                onAction="#back"/>
+
+    </children>
 
 </AnchorPane>
