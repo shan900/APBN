@@ -22,4 +22,8 @@ module com.summer26.sec01.group06.apbn {
     exports com.summer26.sec01.group06.apbn.zaid.models;
 
     exports com.summer26.sec01.group06.apbn.zaid.services;
+    exports com.summer26.sec01.group06.apbn.controller.shan;
+    opens com.summer26.sec01.group06.apbn.controller.shan to javafx.fxml;
+    exports com.summer26.sec01.group06.apbn.controller.jim;
+    opens com.summer26.sec01.group06.apbn.controller.jim to javafx.fxml;
 }

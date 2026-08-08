@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color:#F4F8FB;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.summer26.sec01.group06.apbn.controller.shan.SupervisorController">
+
+    <children>
+
+        <!-- Title -->
+        <Label layoutX="235.0" layoutY="40.0" text="Supervisor Dashboard" textFill="#15417d">
+
+            <font>
+                <Font name="System Bold" size="30.0" />
+            </font>
+
+        </Label>
+
+        <!-- View Passengers -->
+        <Button fx:id="btnViewPassengers" layoutX="250.0" layoutY="130.0" onAction="#viewPassengers" prefHeight="45.0" prefWidth="300.0" style="-fx-background-color:#4CAF50;                        -fx-text-fill:white;                        -fx-font-size:15px;                        -fx-font-weight:bold;" text="View All Passengers" />
+
+        <!-- Flight Schedule -->
+        <Button fx:id="btnFlightSchedule" layoutX="250.0" layoutY="200.0" onAction="#viewFlightSchedule" prefHeight="45.0" prefWidth="300.0" style="-fx-background-color:#2196F3;                        -fx-text-fill:white;                        -fx-font-size:15px;                        -fx-font-weight:bold;" text="View Flight Schedule" />
+
+        <!-- View Officers -->
+        <Button fx:id="btnViewOfficers" layoutX="250.0" layoutY="270.0" onAction="#viewOfficers" prefHeight="45.0" prefWidth="300.0" style="-fx-background-color:#FF9800;                        -fx-text-fill:white;                        -fx-font-size:15px;                        -fx-font-weight:bold;" text="View Security Officers" />
+
+        <!-- Report -->
+        <Button fx:id="btnReport" layoutX="250.0" layoutY="340.0" onAction="#generateReport" prefHeight="45.0" prefWidth="300.0" style="-fx-background-color:#9C27B0;                        -fx-text-fill:white;                        -fx-font-size:15px;                        -fx-font-weight:bold;" text="Generate Report" />
+
+        <!-- Logout -->
+        <Button fx:id="btnLogout" layoutX="318.0" layoutY="409.0" onAction="#logout" prefHeight="45.0" prefWidth="164.0" style="-fx-background-color:#F44336;                        -fx-text-fill:white;                        -fx-font-size:15px;                        -fx-font-weight:bold;" text="Logout" />
+
+    </children>
+
+</AnchorPane>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="600.0"
+            prefWidth="900.0"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.summer26.sec01.group06.apbn.controller.jim.SpecialSupportsController">
+
+    <top>
+
+        <Label text="SPECIAL SECURITY SUPPORT"
+               BorderPane.alignment="CENTER"
+               style="-fx-background-color:#1976D2;
+                      -fx-text-fill:white;
+                      -fx-font-size:24;
+                      -fx-font-weight:bold;
+                      -fx-padding:18;
+                      -fx-max-width:Infinity;
+                      -fx-alignment:center;"/>
+
+    </top>
+
+    <center>
+
+        <VBox alignment="CENTER" spacing="15">
+
+            <padding>
+                <Insets top="25"/>
+            </padding>
+
+            <ListView fx:id="listSupports"
+                      prefWidth="700"
+                      prefHeight="250"/>
+
+            <TextField fx:id="txtPassengerId"
+                       promptText="Passenger ID"
+                       prefWidth="300"/>
+
+            <ComboBox fx:id="cmbSupportType"
+                      prefWidth="300"
+                      promptText="Support Type"/>
+
+            <HBox alignment="CENTER" spacing="10">
+
+                <Button text="Send Medical Team"
+                        onAction="#sendMedicalTeam"/>
+
+                <Button text="Send Wheelchair"
+                        onAction="#sendWheelchair"/>
+
+            </HBox>
+
+            <HBox alignment="CENTER" spacing="10">
+
+                <Button text="Send Escort Team"
+                        onAction="#sendEscortTeam"/>
+
+                <Button text="Complete"
+                        onAction="#completeSupport"/>
+
+                <Button text="Delete"
+                        onAction="#deleteSupport"/>
+
+            </HBox>
+
+            <HBox alignment="CENTER" spacing="10">
+
+                <Button text="Refresh"
+                        onAction="#loadSupports"/>
+
+                <Button text="Back"
+                        style="-fx-background-color:red;
+                               -fx-text-fill:white;
+                               -fx-font-weight:bold;"
+                        onAction="#goBack"/>
+
+            </HBox>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="15"
+      alignment="CENTER"
+      xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.summer26.sec01.group06.apbn.controller.shan.ViewPassengerController">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="VIEW PASSENGER"
+           style="-fx-font-size:22px; -fx-font-weight:bold;"/>
+
+    <TextField fx:id="txtPassengerId"
+               promptText="Enter Passenger ID"
+               prefWidth="250"/>
+
+    <Button text="Search Passenger"
+            prefWidth="180"
+            onAction="#searchPassenger"/>
+
+    <Label fx:id="lblResult"
+           wrapText="true"
+           prefWidth="350"
+           style="-fx-font-size:15px;"/>
+
+    <HBox spacing="15" alignment="CENTER">
+
+        <Button text="Clear"
+                onAction="#clearData"/>
+
+        <Button fx:id="btnBack"
+                text="Back"
+                onAction="#goBack"/>
+
+    </HBox>
+
+</VBox>

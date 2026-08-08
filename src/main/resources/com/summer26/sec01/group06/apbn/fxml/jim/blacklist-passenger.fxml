@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" minHeight="450.0" minWidth="600.0" spacing="15" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.summer26.sec01.group06.apbn.controller.jim.BlacklistPassengerController">
+
+    <padding>
+        <Insets bottom="20" left="20" right="20" top="20" />
+    </padding>
+
+    <Label style="-fx-font-size:22px;-fx-font-weight:bold;" text="BLACKLIST PASSENGER" />
+
+    <TextField fx:id="txtPassengerId" prefWidth="250" promptText="Passenger ID" />
+
+    <TextField fx:id="txtReason" prefWidth="250" promptText="Reason" />
+
+    <Button onAction="#blacklistPassenger" text="Blacklist Passenger" />
+
+    <Label fx:id="lblMessage" />
+
+    <HBox spacing="15">
+
+        <Button onAction="#clearData" text="Clear" />
+
+        <Button fx:id="btnBack" onAction="#goBack" text="Back" />
+
+    </HBox>
+
+</VBox>

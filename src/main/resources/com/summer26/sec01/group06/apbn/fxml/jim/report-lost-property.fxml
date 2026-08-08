@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0"
+            prefWidth="800.0"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.summer26.sec01.group06.apbn.controller.jim.ReportLostPropertyController">
+
+    <children>
+
+        <Label layoutX="210"
+               layoutY="20"
+               text="Report Lost Property">
+
+            <font>
+                <Font size="28"/>
+            </font>
+
+        </Label>
+
+        <Label layoutX="70" layoutY="90" text="Passenger ID"/>
+
+        <TextField fx:id="txtPassengerId"
+                   layoutX="220"
+                   layoutY="85"
+                   prefWidth="220"/>
+
+        <Button fx:id="btnSearch"
+                layoutX="470"
+                layoutY="84"
+                text="Search"
+                onAction="#searchPassenger"/>
+
+        <Label layoutX="70"
+               layoutY="150"
+               text="Item Name"/>
+
+        <TextField fx:id="txtItemName"
+                   layoutX="220"
+                   layoutY="145"
+                   prefWidth="400"/>
+
+        <Label layoutX="70"
+               layoutY="210"
+               text="Lost Location"/>
+
+        <TextField fx:id="txtLocation"
+                   layoutX="220"
+                   layoutY="205"
+                   prefWidth="400"/>
+
+        <Label layoutX="70"
+               layoutY="270"
+               text="Lost Date"/>
+
+        <TextField fx:id="txtDate"
+                   layoutX="220"
+                   layoutY="265"
+                   prefWidth="400"/>
+
+        <Label layoutX="70"
+               layoutY="330"
+               text="Description"/>
+
+        <TextArea fx:id="txtDescription"
+                  layoutX="220"
+                  layoutY="325"
+                  prefWidth="420"
+                  prefHeight="120"/>
+
+        <Button fx:id="btnSubmit"
+                layoutX="170"
+                layoutY="500"
+                prefWidth="120"
+                text="Submit"
+                onAction="#submitReport"/>
+
+        <Button fx:id="btnClear"
+                layoutX="340"
+                layoutY="500"
+                prefWidth="120"
+                text="Clear"
+                onAction="#clearFields"/>
+
+        <Button fx:id="btnBack"
+                layoutX="510"
+                layoutY="500"
+                prefWidth="120"
+                text="Back"
+                onAction="#back"/>
+
+    </children>
+
+</AnchorPane>

@@ -8,6 +8,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 
 public class LoginController {
@@ -24,101 +26,133 @@ public class LoginController {
         String username = txtUsername.getText().trim();
         String password = txtPassword.getText().trim();
 
-        try {
+        if (username.isEmpty() || password.isEmpty()) {
 
-            // Officer Login
-            if (username.equals("officer") && password.equals("123")) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter Username and Password.");
+            alert.showAndWait();
+            return;
+        }
 
-                FXMLLoader loader = new FXMLLoader(
-                        getClass().getResource(
-                                "/com/summer26/sec01/group06/apbn/fxml/officer-dashboard.fxml"
-                        )
-                );
+        boolean found = false;
 
-                Scene scene = new Scene(loader.load());
+        try (BufferedReader reader =
+                     new BufferedReader(new FileReader("data/users.txt"))) {
 
-                Stage stage = (Stage) txtUsername.getScene().getWindow();
+            String line;
 
-                stage.setScene(scene);
-                stage.setTitle("Officer Dashboard");
-                stage.show();
+            while ((line = reader.readLine()) != null) {
+
+                String[] data = line.split(",");
+
+                if (data.length >= 4
+                        && data[1].trim().equalsIgnoreCase(username)
+                        && data[2].trim().equals(password)) {
+
+                    found = true;
+
+                    String role = data[3].trim();
+
+                    FXMLLoader loader = null;
+                    String title = "";
+
+                    switch (role) {
+
+                        case "Admin":
+
+                            loader = new FXMLLoader(
+                                    getClass().getResource(
+                                            "/com/summer26/sec01/group06/apbn/fxml/jim/admin-dashboard.fxml"));
+
+                            title = "Admin Dashboard";
+                            break;
+
+                        case "Officer":
+
+                            loader = new FXMLLoader(
+                                    getClass().getResource(
+                                            "/com/summer26/sec01/group06/apbn/fxml/shan/officer-dashboard.fxml"));
+
+                            title = "Officer Dashboard";
+                            break;
+
+                        case "Supervisor":
+
+                            loader = new FXMLLoader(
+                                    getClass().getResource(
+                                            "/com/summer26/sec01/group06/apbn/fxml/shan/supervisor-dashboard.fxml"));
+
+                            title = "Supervisor Dashboard";
+                            break;
+
+                        case "Passenger":
+
+                            loader = new FXMLLoader(
+                                    getClass().getResource(
+                                            "/com/summer26/sec01/group06/apbn/fxml/jim/passenger-dashboard.fxml"));
+
+                            title = "Passenger Dashboard";
+                            break;
+
+                        case "Immigration Officer":
+
+                            loader = new FXMLLoader(
+                                    getClass().getResource(
+                                            "/com/summer26/sec01/group06/apbn/zaid/view/immigration.fxml"));
+
+                            title = "Immigration Dashboard";
+                            break;
+
+                        case "Baggage Scanner Operator":
+
+                            loader = new FXMLLoader(
+                                    getClass().getResource(
+                                            "/com/summer26/sec01/group06/apbn/zaid/view/baggage-scanner.fxml"));
+
+                            title = "Baggage Scanner Operator Dashboard";
+                            break;
+
+                        default:
+
+                            Alert alert = new Alert(Alert.AlertType.ERROR);
+                            alert.setTitle("Login Failed");
+                            alert.setHeaderText(null);
+                            alert.setContentText("Invalid User Role.");
+                            alert.showAndWait();
+                            return;
+                    }
+
+                    Stage stage = (Stage) txtUsername.getScene().getWindow();
+
+                    stage.setScene(new Scene(loader.load()));
+                    stage.setTitle(title);
+                    stage.show();
+
+                    break;
+                }
             }
 
-            // Supervisor Login
-            else if (username.equals("supervisor") && password.equals("123")) {
-
-                FXMLLoader loader = new FXMLLoader(
-                        getClass().getResource(
-                                "/com/summer26/sec01/group06/apbn/fxml/supervisor-dashboard.fxml"
-                        )
-                );
-
-                Scene scene = new Scene(loader.load());
-
-                Stage stage = (Stage) txtUsername.getScene().getWindow();
-
-                stage.setScene(scene);
-                stage.setTitle("Supervisor Dashboard");
-                stage.show();
-            }
-
-            // Immigration Officer
-            else if (username.equals("IO") && password.equals("1234")) {
-
-                FXMLLoader loader = new FXMLLoader(
-                        getClass().getResource(
-                                "/com/summer26/sec01/group06/apbn/zaid/view/immigration.fxml"
-                        )
-                );
-
-                Scene scene = new Scene(loader.load());
-
-                Stage stage = (Stage) txtUsername.getScene().getWindow();
-
-                stage.setScene(scene);
-                stage.setTitle("Immigration Officer Dashboard");
-                stage.show();
-            }
-
-            // Baggage Scanner Operator
-            else if (username.equals("BSO") && password.equals("12345")) {
-
-                FXMLLoader loader = new FXMLLoader(
-                        getClass().getResource(
-                                "/com/summer26/sec01/group06/apbn/zaid/view/baggage-scanner.fxml"
-                        )
-                );
-
-                Scene scene = new Scene(loader.load());
-
-                Stage stage = (Stage) txtUsername.getScene().getWindow();
-
-                stage.setScene(scene);
-                stage.setTitle("Baggage Scanner Operator Dashboard");
-                stage.show();
-            }
-
-            // Invalid Login
-            else {
+            if (!found) {
 
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Login Failed");
                 alert.setHeaderText(null);
-                alert.setContentText("Invalid Username or Password");
+                alert.setContentText("Invalid Username or Password.");
                 alert.showAndWait();
             }
 
         } catch (IOException e) {
 
-            e.printStackTrace();
-
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText(null);
-            alert.setContentText(
-                    "Cannot open Dashboard.\n\n" + e.getMessage()
-            );
+            alert.setContentText("Unable to read users.txt or open dashboard.");
             alert.showAndWait();
+
+            e.printStackTrace();
         }
     }
+
 }

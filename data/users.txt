@@ -1,0 +1,6 @@
+1,admin,123,Admin
+2,officer,123,Officer
+3,passenger,123,Passenger
+4,supervisor,123,Supervisor
+5,IO,1234,Immigration Officer
+6,BSO,12345,Baggage Scanner Operator

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.summer26.sec01.group06.apbn.controller.shan.OfficerController">
+
+   <children>
+
+      <Label layoutX="240.0" layoutY="20.0" text="Officer Dashboard" textFill="#15417d">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+
+      <Label layoutX="287.0" layoutY="71.0" text="Welcome Officer">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+
+      <!-- Scan Passenger -->
+      <Button fx:id="btnScanPassenger" layoutX="250.0" layoutY="122.0" onAction="#openPassengerScan" prefHeight="35.0" prefWidth="220.0" text="Scan Passenger" />
+
+      <!-- Verify Passport -->
+      <Button fx:id="btnVerifyPassport" layoutX="250.0" layoutY="186.0" onAction="#verifyPassport" prefHeight="35.0" prefWidth="220.0" text="Verify Passport" />
+
+      <!-- Search Passenger -->
+      <Button fx:id="btnSearchPassenger" layoutX="250.0" layoutY="250.0" onAction="#searchPassenger" prefHeight="35.0" prefWidth="220.0" text="Search Passenger" />
+
+      <!-- View Flight Schedule -->
+      <Button fx:id="btnFlightSchedule" layoutX="250.0" layoutY="310.0" onAction="#viewFlights" prefHeight="35.0" prefWidth="220.0" text="View Flight Schedule" />
+
+      <!-- Logout -->
+      <Button fx:id="btnLogout" layoutX="285.0" layoutY="383.0" onAction="#logout" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color:#d9534f; -fx-text-fill:white;" text="Logout" />
+
+   </children>
+
+</AnchorPane>
