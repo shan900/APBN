@@ -13,9 +13,9 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
 
         FXMLLoader fxmlLoader =
-                new FXMLLoader(HelloApplication.class.getResource("zaid/view/immigration.fxml"));
+                new FXMLLoader(HelloApplication.class.getResource("zaid/view/baggage-scanner.fxml"));
 
-        Scene scene = new Scene(fxmlLoader.load(), 900, 600);
+        Scene scene = new Scene(fxmlLoader.load(), 1400, 900);
 
         stage.setTitle("APBN Immigration Officer");
 

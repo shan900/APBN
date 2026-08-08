@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0"
+            prefWidth="1200.0"
+            xmlns="http://javafx.com/javafx/26"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.summer26.sec01.group06.apbn.zaid.controllers.ScannerMachineStatusController">
+
+    <children>
+
+        <!-- ================= HEADER ================= -->
+
+        <HBox prefHeight="60.0"
+              prefWidth="1200.0"
+              style="-fx-background-color:#0A2E5C;"
+              AnchorPane.leftAnchor="0.0"
+              AnchorPane.rightAnchor="0.0"
+              AnchorPane.topAnchor="0.0">
+
+            <children>
+
+                <Button fx:id="backButton"
+                        text="← Back"
+                        onAction="#backButton"
+                        prefWidth="90.0"
+                        prefHeight="35.0"
+                        style="-fx-background-color:#1E4E8C;
+                               -fx-background-radius:18;
+                               -fx-text-fill:white;
+                               -fx-font-weight:bold;
+                               -fx-cursor:hand;"/>
+
+                <Label prefHeight="35.0"
+                       prefWidth="390.0"
+                       text="✈ APBN Airport Security System"
+                       textFill="WHITE">
+
+                    <font>
+                        <Font name="System Bold"
+                              size="22.0"/>
+                    </font>
+
+                </Label>
+
+                <Region HBox.hgrow="ALWAYS"/>
+
+                <Label text="Scanner Machine Status"
+                       textFill="WHITE">
+
+                    <font>
+                        <Font name="System Bold"
+                              size="18.0"/>
+                    </font>
+
+                </Label>
+
+            </children>
+
+        </HBox>
+
+
+        <!-- ================= TITLE ================= -->
+
+        <Label layoutX="385.0"
+               layoutY="90.0"
+               text="SCANNER MACHINE MONITORING"
+               textFill="#0A2E5C">
+
+            <font>
+                <Font name="System Bold"
+                      size="28.0"/>
+            </font>
+
+        </Label>
+
+
+        <!-- ================= MACHINE SELECTION ================= -->
+
+        <Label layoutX="120.0"
+               layoutY="175.0"
+               text="Scanner Machine">
+
+            <font>
+                <Font name="System Bold"
+                      size="15.0"/>
+            </font>
+
+        </Label>
+
+        <ComboBox fx:id="machineComboBox"
+                  layoutX="270.0"
+                  layoutY="168.0"
+                  prefWidth="230.0"
+                  promptText="Select Scanner"/>
+
+
+        <!-- ================= MACHINE HEALTH ================= -->
+
+        <Label layoutX="650.0"
+               layoutY="175.0"
+               text="Machine Health">
+
+            <font>
+                <Font name="System Bold"
+                      size="15.0"/>
+            </font>
+
+        </Label>
+
+        <Label fx:id="healthStatusLabel"
+               layoutX="790.0"
+               layoutY="168.0"
+               prefWidth="230.0"
+               text="Unknown"
+               style="-fx-background-color:#EEEEEE;
+                      -fx-background-radius:8;
+                      -fx-padding:10;
+                      -fx-font-weight:bold;
+                      -fx-text-fill:#555555;"/>
+
+
+        <!-- ================= MACHINE DATA ================= -->
+
+        <Label layoutX="120.0"
+               layoutY="245.0"
+               text="Scanner Status">
+
+            <font>
+                <Font name="System Bold"
+                      size="15.0"/>
+            </font>
+
+        </Label>
+
+        <Label fx:id="scannerStatusLabel"
+               layoutX="270.0"
+               layoutY="238.0"
+               prefWidth="230.0"
+               text="Not Checked"
+               style="-fx-font-weight:bold;
+                      -fx-text-fill:#555555;"/>
+
+
+        <Label layoutX="650.0"
+               layoutY="245.0"
+               text="Last Maintenance">
+
+            <font>
+                <Font name="System Bold"
+                      size="15.0"/>
+            </font>
+
+        </Label>
+
+        <Label fx:id="maintenanceDateLabel"
+               layoutX="790.0"
+               layoutY="238.0"
+               prefWidth="230.0"
+               text="Not Available"
+               style="-fx-font-weight:bold;
+                      -fx-text-fill:#555555;"/>
+
+
+        <!-- ================= PROBLEM DESCRIPTION ================= -->
+
+        <Label layoutX="120.0"
+               layoutY="315.0"
+               text="Technical Problem">
+
+            <font>
+                <Font name="System Bold"
+                      size="15.0"/>
+            </font>
+
+        </Label>
+
+        <TextArea fx:id="problemArea"
+                  layoutX="270.0"
+                  layoutY="305.0"
+                  prefWidth="750.0"
+                  prefHeight="120.0"
+                  promptText="Detected technical problem will appear here..."
+                  wrapText="true"
+                  editable="false"/>
+
+
+        <!-- ================= BUTTONS ================= -->
+
+        <HBox layoutX="205.0"
+              layoutY="470.0"
+              spacing="15.0">
+
+            <children>
+
+                <Button fx:id="fetchButton"
+                        text="Fetch Machine Data"
+                        onAction="#fetchMachineData"
+                        prefWidth="170.0"
+                        prefHeight="40.0"
+                        style="-fx-background-color:#1565C0;
+                               -fx-text-fill:white;
+                               -fx-font-weight:bold;
+                               -fx-background-radius:8;
+                               -fx-cursor:hand;"/>
+
+                <Button fx:id="detectButton"
+                        text="Detect Problem"
+                        onAction="#detectProblem"
+                        prefWidth="150.0"
+                        prefHeight="40.0"
+                        style="-fx-background-color:#EF6C00;
+                               -fx-text-fill:white;
+                               -fx-font-weight:bold;
+                               -fx-background-radius:8;
+                               -fx-cursor:hand;"/>
+
+                <Button fx:id="alertButton"
+                        text="Maintenance Alert"
+                        onAction="#generateAlert"
+                        prefWidth="170.0"
+                        prefHeight="40.0"
+                        style="-fx-background-color:#C62828;
+                               -fx-text-fill:white;
+                               -fx-font-weight:bold;
+                               -fx-background-radius:8;
+                               -fx-cursor:hand;"/>
+
+                <Button fx:id="notifyButton"
+                        text="Notify Technical Dept."
+                        onAction="#notifyTechnicalDepartment"
+                        prefWidth="180.0"
+                        prefHeight="40.0"
+                        style="-fx-background-color:#6A1B9A;
+                               -fx-text-fill:white;
+                               -fx-font-weight:bold;
+                               -fx-background-radius:8;
+                               -fx-cursor:hand;"/>
+
+            </children>
+
+        </HBox>
+
+
+        <!-- ================= SAVE ================= -->
+
+        <Button fx:id="saveButton"
+                layoutX="500.0"
+                layoutY="535.0"
+                text="Save Maintenance Log"
+                onAction="#saveMaintenanceLog"
+                prefWidth="200.0"
+                prefHeight="42.0"
+                style="-fx-background-color:#2E7D32;
+                       -fx-text-fill:white;
+                       -fx-font-weight:bold;
+                       -fx-background-radius:8;
+                       -fx-cursor:hand;"/>
+
+
+        <!-- ================= STATUS ================= -->
+
+        <Label fx:id="statusLabel"
+               layoutX="350.0"
+               layoutY="610.0"
+               prefWidth="500.0"
+               alignment="CENTER"
+               text="Ready"
+               style="-fx-font-size:16;
+                      -fx-font-weight:bold;
+                      -fx-text-fill:#0A2E5C;"/>
+
+    </children>
+
+</AnchorPane>

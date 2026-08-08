@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color:#F4F6F8;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.summer26.sec01.group06.apbn.zaid.controllers.EntryExitApprovalController">
+
+   <children>
+
+      <!-- ================= HEADER ================= -->
+
+      <HBox prefHeight="55.0" prefWidth="1200.0" style="-fx-background-color:#0A2E5C;" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+
+         <children>
+
+            <Button fx:id="backButton" onAction="#backButton" prefHeight="35" prefWidth="90" style="-fx-background-color:#1E4E8C;                                -fx-background-radius:18;                                -fx-text-fill:white;                                -fx-font-weight:bold;" text="← Back" />
+
+            <Label text="✈ APBN Airport Security System" textFill="WHITE">
+
+               <font>
+                  <Font size="22" />
+               </font>
+
+            </Label>
+
+            <Region HBox.hgrow="ALWAYS" />
+
+            <Label text="Approve Entry / Exit" textFill="WHITE">
+
+               <font>
+                  <Font size="18" />
+               </font>
+
+            </Label>
+
+         </children>
+
+      </HBox>
+
+      <!-- ================= TITLE ================= -->
+
+      <Label layoutX="390" layoutY="95" text="PASSENGER ENTRY / EXIT APPROVAL">
+
+         <font>
+            <Font size="28" />
+         </font>
+
+      </Label>
+
+      <!-- ================= FORM ================= -->
+
+      <Label layoutX="120" layoutY="180" text="Passport Number" />
+
+      <TextField fx:id="passportNumberField" layoutX="270" layoutY="175" prefWidth="230" promptText="Enter Passport Number" />
+
+      <Label layoutX="120" layoutY="250" text="Passenger Name" />
+
+      <TextField fx:id="passengerNameField" layoutX="270" layoutY="245" prefWidth="230" promptText="Enter Passenger Name" />
+
+      <Label layoutX="120" layoutY="320" text="Travel Permission" />
+
+      <ComboBox fx:id="travelPermissionComboBox" layoutX="270" layoutY="315" prefWidth="230" />
+
+      <Label layoutX="650" layoutY="180" text="Immigration Clearance" />
+
+      <ComboBox fx:id="clearanceStatusComboBox" layoutX="840" layoutY="175" prefWidth="220" />
+
+      <Label layoutX="650" layoutY="250" text="Travel Status" />
+
+      <ComboBox fx:id="travelStatusComboBox" layoutX="840" layoutY="245" prefWidth="220" />
+
+      <!-- ================= BUTTONS ================= -->
+
+      <HBox layoutX="240" layoutY="450" spacing="20">
+
+         <children>
+
+            <Button fx:id="approveButton" onAction="#approvePassenger" prefWidth="130" style="-fx-background-color:#2E7D32;                                -fx-text-fill:white;                                -fx-font-weight:bold;" text="Approve" />
+
+            <Button fx:id="rejectButton" onAction="#rejectPassenger" prefWidth="130" style="-fx-background-color:#C62828;                                -fx-text-fill:white;                                -fx-font-weight:bold;" text="Reject" />
+
+            <Button fx:id="clearButton" onAction="#clearFields" prefWidth="130" style="-fx-background-color:#EF6C00;                                -fx-text-fill:white;                                -fx-font-weight:bold;" text="Clear" />
+
+            <Button fx:id="saveButton" onAction="#saveApproval" prefWidth="130" style="-fx-background-color:#1565C0;                                -fx-text-fill:white;                                -fx-font-weight:bold;" text="Save" />
+
+         </children>
+
+      </HBox>
+
+      <!-- ================= STATUS ================= -->
+
+      <Label fx:id="statusLabel" alignment="CENTER" layoutX="410" layoutY="570" prefWidth="400" style="-fx-font-size:16;                       -fx-font-weight:bold;                       -fx-text-fill:#0A2E5C;" />
+
+   </children>
+
+</AnchorPane>

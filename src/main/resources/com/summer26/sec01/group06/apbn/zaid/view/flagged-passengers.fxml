@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color:#F4F6F8;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.summer26.sec01.group06.apbn.zaid.controllers.FlaggedPassengersController">
+
+
+   <!-- ================= HEADER ================= -->
+
+   <HBox prefHeight="55.0" prefWidth="1200.0" style="-fx-background-color:#0A2E5C;" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+
+      <children>
+
+         <Button fx:id="backButton" onAction="#backButton" prefHeight="35" prefWidth="90" style="-fx-background-color:#1E4E8C;                            -fx-background-radius:18;                            -fx-text-fill:white;                            -fx-font-weight:bold;                            -fx-cursor:hand;" text="← Back" />
+
+
+         <Label text="✈ APBN Airport Security System" textFill="WHITE">
+
+            <font>
+               <Font name="System Bold" size="22" />
+            </font>
+
+         </Label>
+
+
+         <Region HBox.hgrow="ALWAYS" />
+
+
+         <Label text="Flagged Passengers" textFill="WHITE">
+
+            <font>
+               <Font name="System Bold" size="18" />
+            </font>
+
+         </Label>
+
+      </children>
+
+   </HBox>
+
+
+
+   <!-- ================= TITLE ================= -->
+
+
+   <Label layoutX="390" layoutY="90" text="FLAGGED PASSENGER MANAGEMENT">
+
+      <font>
+         <Font name="System Bold" size="26" />
+      </font>
+
+   </Label>
+
+
+
+   <!-- ================= SEARCH SECTION ================= -->
+
+
+   <Label layoutX="100" layoutY="170" text="Passport Number" />
+
+
+   <TextField fx:id="passportNumberField" layoutX="250" layoutY="165" prefWidth="230" promptText="Enter Passport Number" />
+
+
+
+   <Label layoutX="560" layoutY="170" text="Risk Level" />
+
+
+   <ComboBox fx:id="riskLevelComboBox" layoutX="680" layoutY="165" prefWidth="220" />
+
+
+
+   <Label layoutX="100" layoutY="240" text="Current Location" />
+
+
+   <TextField fx:id="currentLocationField" layoutX="250" layoutY="235" prefWidth="230" promptText="Passenger Location" />
+
+
+
+   <!-- ================= TABLE ================= -->
+
+
+   <Label layoutX="100" layoutY="330" text="Flagged Passenger Records">
+
+
+      <font>
+         <Font name="System Bold" size="16" />
+      </font>
+
+   </Label>
+
+
+   <TableView fx:id="flaggedTable" layoutX="100" layoutY="360" prefHeight="150" prefWidth="1000">
+
+
+      <columns>
+
+         <TableColumn fx:id="passportColumn" prefWidth="200" text="Passport No" />
+
+
+         <TableColumn fx:id="nameColumn" prefWidth="250" text="Passenger Name" />
+
+
+         <TableColumn fx:id="riskColumn" prefWidth="200" text="Risk Level" />
+
+
+         <TableColumn fx:id="locationColumn" prefWidth="250" text="Location" />
+
+
+      </columns>
+
+
+   </TableView>
+
+
+
+
+   <!-- ================= BUTTONS ================= -->
+
+
+   <HBox layoutX="280" layoutY="570" spacing="20">
+
+
+      <children>
+
+
+         <Button fx:id="searchButton" onAction="#searchPassenger" prefWidth="130" style="-fx-background-color:#1565C0;                            -fx-text-fill:white;                            -fx-font-weight:bold;" text="Search" />
+
+
+
+         <Button fx:id="notifyButton" onAction="#notifySecurity" prefWidth="150" style="-fx-background-color:#EF6C00;                            -fx-text-fill:white;                            -fx-font-weight:bold;" text="Notify Security" />
+
+
+
+         <Button fx:id="removeFlagButton" onAction="#removeFlag" prefWidth="140" style="-fx-background-color:#2E7D32;                            -fx-text-fill:white;                            -fx-font-weight:bold;" text="Remove Flag" />
+
+
+
+         <Button fx:id="clearButton" onAction="#clearFields" prefWidth="120" style="-fx-background-color:#757575;                            -fx-text-fill:white;                            -fx-font-weight:bold;" text="Clear" />
+
+
+      </children>
+
+
+   </HBox>
+
+
+
+   <Label fx:id="statusLabel" layoutX="589.0" layoutY="645.0" style="-fx-font-size:16;                   -fx-font-weight:bold;                   -fx-text-fill:#0A2E5C;" />
+
+
+</AnchorPane>

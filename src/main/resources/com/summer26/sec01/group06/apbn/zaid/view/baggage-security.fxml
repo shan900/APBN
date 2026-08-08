@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.summer26.sec01.group06.apbn.zaid.controllers.BaggageSecurityController">
+   <children>
+      <HBox prefHeight="70.0" prefWidth="1200.0" style="-fx-background-color: #0A2E5C;">
+         <children>
+            <Button fx:id="backButton" alignment="CENTER" mnemonicParsing="false" onAction="#backButton" style="-fx-background-color: #0A2E5C; -fx-background-radius: 8; -fx-text-fill: white; -fx-font-weight: bold;" text="← Back" />
+            <Label text="✈ APBN Airport Security System" textFill="#e8e1e1">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+            <Region prefHeight="200.0" prefWidth="200.0" />
+            <Label text="Baggage Security" textFill="#fffdfd">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <VBox alignment="CENTER" layoutX="363.0" layoutY="103.0" prefHeight="200.0" prefWidth="517.0">
+         <children>
+            <Label text="BAGGAGE SECURITY" textFill="#0a1168">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <Label text="Detect prohibited items and manage suspicious baggage">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.6578947305679321" green="0.19188596308231354" blue="0.19188596308231354" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.6499999761581421" green="0.19499999284744263" blue="0.19499999284744263" opacity="0.8931297659873962" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+         </children>
+      </VBox>
+      <Label fx:id="statusLabel" layoutX="568.0" layoutY="637.0" prefHeight="17.0" prefWidth="107.0" />
+      <Label layoutX="107.0" layoutY="350.0" text="Detected Item" />
+      <Label layoutX="107.0" layoutY="424.0" text="Security Status" />
+      <TextField fx:id="baggageIdField" layoutX="187.0" layoutY="282.0" />
+      <ComboBox fx:id="securityStatusComboBox" layoutX="197.0" layoutY="420.0" prefWidth="150.0" />
+      <HBox alignment="CENTER" layoutX="431.0" layoutY="502.0" prefHeight="100.0" prefWidth="258.0" spacing="20.0">
+         <children>
+            <Button fx:id="detectButton" mnemonicParsing="false" onAction="#detectButton" style="-fx-background-color: BLUE; -fx-border-radius: 20; -fx-text-fill: WHITE;" text="DETECT">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="rejectButton" alignment="CENTER" mnemonicParsing="false" onAction="#rejectButton" style="-fx-background-color: RED; -fx-text-fill: WHITE; -fx-border-radius: 30;" text="REJECT">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="trackButton" mnemonicParsing="false" onAction="#trackButton" style="-fx-background-color: GREEN; -fx-text-fill: WHITE; -fx-border-radius: 20;" text="TRACK" />
+         </children>
+      </HBox>
+      <ComboBox fx:id="detectedItemComboBox" layoutX="197.0" layoutY="346.0" prefWidth="150.0" />
+      <Label layoutX="107.0" layoutY="502.0" text="Tracking ID" />
+      <TextField fx:id="trackingIdField" layoutX="183.0" layoutY="498.0" />
+      <Label layoutX="105.0" layoutY="286.0" text="Baggage ID" />
+   </children>
+</AnchorPane>

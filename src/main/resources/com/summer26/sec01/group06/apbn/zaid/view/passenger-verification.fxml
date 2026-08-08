@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1200.0"
+            style="-fx-background-color:#F4F6F8;"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.summer26.sec01.group06.apbn.zaid.controllers.PassengerVerificationController">
+
+   <children>
+
+      <!-- ================= HEADER ================= -->
+
+      <HBox prefHeight="60.0"
+            AnchorPane.leftAnchor="0.0"
+            AnchorPane.rightAnchor="0.0"
+            AnchorPane.topAnchor="0.0"
+            alignment="CENTER_LEFT"
+            spacing="15"
+            style="-fx-background-color:#0A2E5C;">
+
+         <padding>
+            <Insets left="15" right="15"/>
+         </padding>
+
+         <children>
+
+            <Button fx:id="backButton"
+                    text="← Back"
+                    onAction="#backButton"
+                    prefWidth="85"
+                    style="-fx-background-color:#1E4E8C;
+                               -fx-background-radius:18;
+                               -fx-text-fill:white;
+                               -fx-font-weight:bold;
+                               -fx-cursor:hand;"/>
+
+            <Label text="✈ APBN Airport Security System"
+                   textFill="WHITE">
+               <font>
+                  <Font size="21"/>
+               </font>
+            </Label>
+
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <Label text="Passport and Visa Verification"
+                   textFill="WHITE">
+               <font>
+                  <Font size="18"/>
+               </font>
+            </Label>
+
+         </children>
+
+      </HBox>
+
+      <!-- ================= TITLE ================= -->
+
+      <VBox alignment="CENTER"
+            layoutY="90"
+            prefWidth="1200"
+            spacing="8">
+
+         <children>
+
+            <Label text="PASSENGER VERIFICATION"
+                   textFill="#0A2E5C">
+               <font>
+                  <Font size="30"/>
+               </font>
+            </Label>
+
+            <Label text="Verify passenger passport and visa information"
+                   textFill="#666666"/>
+
+         </children>
+
+      </VBox>
+
+      <!-- ================= FORM ================= -->
+
+      <GridPane hgap="30"
+                vgap="25"
+                layoutX="220"
+                layoutY="190">
+
+         <children>
+
+            <Label text="Passport Number"
+                   GridPane.columnIndex="0"
+                   GridPane.rowIndex="0"/>
+
+            <TextField fx:id="passportNumberField"
+                       promptText="Enter Passport Number"
+                       prefWidth="220"
+                       GridPane.columnIndex="1"
+                       GridPane.rowIndex="0"/>
+
+            <Label text="Passenger Name"
+                   GridPane.columnIndex="0"
+                   GridPane.rowIndex="1"/>
+
+            <TextField fx:id="passengerNameField"
+
+                       prefWidth="220"
+                       GridPane.columnIndex="1"
+                       GridPane.rowIndex="1"/>
+
+            <Label text="Nationality"
+                   GridPane.columnIndex="2"
+                   GridPane.rowIndex="1"/>
+
+            <TextField fx:id="nationalityField"
+
+                       prefWidth="220"
+                       GridPane.columnIndex="3"
+                       GridPane.rowIndex="1"/>
+
+            <Label text="Visa Status"
+                   GridPane.columnIndex="0"
+                   GridPane.rowIndex="2"/>
+
+            <ComboBox fx:id="visaStatusComboBox"
+                      prefWidth="220"
+                      GridPane.columnIndex="1"
+                      GridPane.rowIndex="2"/>
+
+            <Label text="Blacklist Status"
+                   GridPane.columnIndex="2"
+                   GridPane.rowIndex="2"/>
+
+            <ComboBox fx:id="blacklistStatusComboBox"
+                      prefWidth="220"
+                      GridPane.columnIndex="3"
+                      GridPane.rowIndex="2"/>
+
+         </children>
+
+      </GridPane>
+
+      <!-- ================= BUTTONS ================= -->
+
+      <HBox alignment="CENTER"
+            layoutY="470"
+            prefWidth="1200"
+            spacing="20">
+
+         <children>
+
+            <Button fx:id="fetchButton"
+                    text="Fetch"
+                    onAction="#fetchPassenger"
+                    prefWidth="120"
+                    style="-fx-background-color:#0A2E5C;
+                               -fx-text-fill:white;
+                               -fx-font-weight:bold;
+                               -fx-background-radius:10;"/>
+
+            <Button fx:id="verifyButton"
+                    text="Verify"
+                    onAction="#verifyPassenger"
+                    prefWidth="120"
+                    style="-fx-background-color:#198754;
+                               -fx-text-fill:white;
+                               -fx-font-weight:bold;
+                               -fx-background-radius:10;"/>
+
+            <Button fx:id="saveButton"
+                    text="Save Log"
+                    onAction="#saveVerification"
+                    prefWidth="120"
+                    style="-fx-background-color:#6F42C1;
+                               -fx-text-fill:white;
+                               -fx-font-weight:bold;
+                               -fx-background-radius:10;"/>
+
+            <Button fx:id="clearButton"
+                    text="Clear"
+                    onAction="#clearFields"
+                    prefWidth="120"
+                    style="-fx-background-color:#DC3545;
+                               -fx-text-fill:white;
+                               -fx-font-weight:bold;
+                               -fx-background-radius:10;"/>
+
+         </children>
+
+      </HBox>
+
+      <!-- ================= STATUS ================= -->
+
+      <Label fx:id="statusLabel"
+             layoutY="610"
+             prefWidth="1200"
+             alignment="CENTER"
+             text="Ready..."
+             style="-fx-font-size:16px;
+                      -fx-font-weight:bold;"
+             textFill="GREEN"/>
+
+   </children>
+
+</AnchorPane>

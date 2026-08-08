@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0"
+            prefWidth="1200.0"
+            xmlns="http://javafx.com/javafx/26"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.summer26.sec01.group06.apbn.zaid.controllers.BaggageScannerController">
+
+   <children>
+
+      <!-- ================= BACKGROUND IMAGE ================= -->
+
+      <ImageView fx:id="backgroundImage"
+                 fitHeight="700.0"
+                 fitWidth="1200.0"
+                 preserveRatio="false"
+                 pickOnBounds="true">
+
+         <image>
+            <Image url="@../images/airport-background.png"/>
+         </image>
+
+      </ImageView>
+
+
+      <!-- ================= DARK OVERLAY ================= -->
+
+      <AnchorPane prefHeight="700.0"
+                  prefWidth="1200.0"
+                  style="-fx-background-color: rgba(0,0,0,0.48);"
+                  pickOnBounds="false"/>
+
+
+      <!-- ================= HEADER ================= -->
+
+      <HBox prefHeight="70.0"
+            prefWidth="1200.0"
+            style="-fx-background-color: rgba(10,46,92,0.96);"
+            AnchorPane.leftAnchor="0.0"
+            AnchorPane.rightAnchor="0.0"
+            AnchorPane.topAnchor="0.0">
+
+         <children>
+
+            <Label prefHeight="35.0"
+                   prefWidth="420.0"
+                   text="✈ APBN Airport Security System"
+                   textFill="WHITE">
+
+               <font>
+                  <Font name="System Bold"
+                        size="24.0"/>
+               </font>
+
+            </Label>
+
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <Label text="Baggage Scanner Operator Dashboard"
+                   textFill="WHITE">
+
+               <font>
+                  <Font name="System Bold"
+                        size="20.0"/>
+               </font>
+
+            </Label>
+
+         </children>
+
+      </HBox>
+
+
+      <!-- ================= TITLE ================= -->
+
+      <Label layoutX="360.0"
+             layoutY="92.0"
+             text="BAGGAGE SCANNER OPERATOR"
+             textFill="WHITE">
+
+         <font>
+            <Font name="System Bold"
+                  size="30.0"/>
+         </font>
+
+      </Label>
+
+
+      <Label layoutX="470.0"
+             layoutY="140.0"
+             text="Select an operation to continue"
+             textFill="WHITE">
+
+         <font>
+            <Font size="16.0"/>
+         </font>
+
+      </Label>
+
+
+      <!-- ================= CARD 1 ================= -->
+
+      <StackPane fx:id="informationCard"
+                 layoutX="180.0"
+                 layoutY="195.0"
+                 prefWidth="390.0"
+                 prefHeight="175.0"
+                 onMouseClicked="#openInformation"
+                 style="-fx-background-color: rgba(255,255,255,0.96);
+                          -fx-background-radius:18;
+                          -fx-border-color:#0A2E5C;
+                          -fx-border-width:2;
+                          -fx-border-radius:18;
+                          -fx-cursor:hand;">
+
+         <children>
+
+            <VBox alignment="CENTER"
+                  spacing="12.0">
+
+               <children>
+
+                  <Label text="🧳"
+                         textFill="#0A2E5C">
+
+                     <font>
+                        <Font size="38.0"/>
+                     </font>
+
+                  </Label>
+
+                  <Label text="Baggage Information"
+                         textFill="#0A2E5C">
+
+                     <font>
+                        <Font name="System Bold"
+                              size="20.0"/>
+                     </font>
+
+                  </Label>
+
+                  <Label text="Scan and search passenger baggage"
+                         textFill="#555555">
+
+                     <font>
+                        <Font size="13.0"/>
+                     </font>
+
+                  </Label>
+
+               </children>
+
+            </VBox>
+
+         </children>
+
+      </StackPane>
+
+
+      <!-- ================= CARD 2 ================= -->
+
+      <StackPane fx:id="securityCard"
+                 layoutX="630.0"
+                 layoutY="195.0"
+                 prefWidth="390.0"
+                 prefHeight="175.0"
+                 onMouseClicked="#openSecurity"
+                 style="-fx-background-color: rgba(255,255,255,0.96);
+                          -fx-background-radius:18;
+                          -fx-border-color:#0A2E5C;
+                          -fx-border-width:2;
+                          -fx-border-radius:18;
+                          -fx-cursor:hand;">
+
+         <children>
+
+            <VBox alignment="CENTER"
+                  spacing="12.0">
+
+               <children>
+
+                  <Label text="🛡"
+                         textFill="#0A2E5C">
+
+                     <font>
+                        <Font size="38.0"/>
+                     </font>
+
+                  </Label>
+
+                  <Label text="Baggage Security"
+                         textFill="#0A2E5C">
+
+                     <font>
+                        <Font name="System Bold"
+                              size="20.0"/>
+                     </font>
+
+                  </Label>
+
+                  <Label text="Detect and manage suspicious baggage"
+                         textFill="#555555">
+
+                     <font>
+                        <Font size="13.0"/>
+                     </font>
+
+                  </Label>
+
+               </children>
+
+            </VBox>
+
+         </children>
+
+      </StackPane>
+
+
+      <!-- ================= CARD 3 ================= -->
+
+      <StackPane fx:id="reportsCard"
+                 layoutX="180.0"
+                 layoutY="395.0"
+                 prefWidth="390.0"
+                 prefHeight="175.0"
+                 onMouseClicked="#openReports"
+                 style="-fx-background-color: rgba(255,255,255,0.96);
+                          -fx-background-radius:18;
+                          -fx-border-color:#0A2E5C;
+                          -fx-border-width:2;
+                          -fx-border-radius:18;
+                          -fx-cursor:hand;">
+
+         <children>
+
+            <VBox alignment="CENTER"
+                  spacing="12.0">
+
+               <children>
+
+                  <Label text="📊"
+                         textFill="#0A2E5C">
+
+                     <font>
+                        <Font size="38.0"/>
+                     </font>
+
+                  </Label>
+
+                  <Label text="Inspection Reports"
+                         textFill="#0A2E5C">
+
+                     <font>
+                        <Font name="System Bold"
+                              size="20.0"/>
+                     </font>
+
+                  </Label>
+
+                  <Label text="Generate baggage inspection reports"
+                         textFill="#555555">
+
+                     <font>
+                        <Font size="13.0"/>
+                     </font>
+
+                  </Label>
+
+               </children>
+
+            </VBox>
+
+         </children>
+
+      </StackPane>
+
+
+      <!-- ================= CARD 4 — GOAL 6 ================= -->
+
+      <StackPane fx:id="machineStatusCard"
+                 layoutX="630.0"
+                 layoutY="395.0"
+                 prefWidth="390.0"
+                 prefHeight="175.0"
+                 onMouseClicked="#openMachineStatus"
+                 style="-fx-background-color: rgba(255,255,255,0.96);
+                          -fx-background-radius:18;
+                          -fx-border-color:#0A2E5C;
+                          -fx-border-width:2;
+                          -fx-border-radius:18;
+                          -fx-cursor:hand;">
+
+         <children>
+
+            <VBox alignment="CENTER"
+                  spacing="12.0">
+
+               <children>
+
+                  <Label text="⚙"
+                         textFill="#0A2E5C">
+
+                     <font>
+                        <Font size="38.0"/>
+                     </font>
+
+                  </Label>
+
+                  <Label text="Scanner Machine Status"
+                         textFill="#0A2E5C">
+
+                     <font>
+                        <Font name="System Bold"
+                              size="20.0"/>
+                     </font>
+
+                  </Label>
+
+                  <Label text="Monitor scanner health and technical problems"
+                         textFill="#555555">
+
+                     <font>
+                        <Font size="13.0"/>
+                     </font>
+
+                  </Label>
+
+               </children>
+
+            </VBox>
+
+         </children>
+
+      </StackPane>
+
+
+      <!-- ================= LOGOUT ================= -->
+
+      <Button fx:id="logoutButton"
+              layoutX="535.0"
+              layoutY="615.0"
+              prefWidth="130.0"
+              prefHeight="42.0"
+              mnemonicParsing="false"
+              onAction="#logout"
+              text="LOGOUT"
+              style="-fx-background-color:#C62828;
+                       -fx-background-radius:12;
+                       -fx-text-fill:white;
+                       -fx-font-weight:bold;
+                       -fx-font-size:15;
+                       -fx-cursor:hand;">
+
+         <font>
+            <Font name="System Bold"
+                  size="15.0"/>
+         </font>
+
+      </Button>
+
+   </children>
+
+</AnchorPane>

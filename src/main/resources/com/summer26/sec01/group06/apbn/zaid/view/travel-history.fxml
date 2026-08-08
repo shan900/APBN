@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0"
+            prefWidth="1200.0"
+            style="-fx-background-color:#F4F7FA;"
+            xmlns="http://javafx.com/javafx/26"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.summer26.sec01.group06.apbn.zaid.controllers.TravelHistoryController">
+
+   <children>
+
+      <!-- ================= HEADER ================= -->
+
+      <HBox prefHeight="55.0"
+            prefWidth="1200.0"
+            style="-fx-background-color:#0A2E5C;"
+            AnchorPane.leftAnchor="0"
+            AnchorPane.rightAnchor="0"
+            AnchorPane.topAnchor="0">
+
+         <children>
+
+            <Button fx:id="backButton"
+                    text="← Back"
+                    onAction="#backButton"
+                    prefHeight="35"
+                    prefWidth="90"
+                    style="-fx-background-color:#1E4E8C;
+                               -fx-background-radius:18;
+                               -fx-text-fill:white;
+                               -fx-font-weight:bold;" />
+
+            <Label text="✈ APBN Airport Security System"
+                   textFill="WHITE">
+
+               <font>
+                  <Font size="22"/>
+               </font>
+
+            </Label>
+
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <Label text="Travel History"
+                   textFill="WHITE">
+
+               <font>
+                  <Font size="18"/>
+               </font>
+
+            </Label>
+
+         </children>
+
+      </HBox>
+
+      <!-- ================= TITLE ================= -->
+
+      <Label layoutX="430"
+             layoutY="90"
+             text="PASSENGER TRAVEL HISTORY">
+
+         <font>
+            <Font size="28"/>
+         </font>
+
+      </Label>
+
+      <!-- Passport -->
+
+      <Label layoutX="90"
+             layoutY="170"
+             text="Passport Number"/>
+
+      <TextField fx:id="passportNumberField"
+                 layoutX="220"
+                 layoutY="165"
+                 prefWidth="220"
+                 promptText="Enter Passport Number"/>
+
+      <!-- Country -->
+
+      <Label layoutX="520"
+             layoutY="170"
+             text="Country"/>
+
+      <ComboBox fx:id="countryComboBox"
+                layoutX="600"
+                layoutY="165"
+                prefWidth="220"/>
+
+      <!-- Date -->
+
+      <Label layoutX="90"
+             layoutY="240"
+             text="From Date"/>
+
+      <DatePicker fx:id="fromDatePicker"
+                  layoutX="220"
+                  layoutY="235"
+                  prefWidth="220"/>
+
+      <Label layoutX="520"
+             layoutY="240"
+             text="To Date"/>
+
+      <DatePicker fx:id="toDatePicker"
+                  layoutX="600"
+                  layoutY="235"
+                  prefWidth="220"/>
+
+      <!-- Table -->
+
+      <TableView fx:id="travelHistoryTable"
+                 layoutX="90"
+                 layoutY="320"
+                 prefHeight="230"
+                 prefWidth="1020">
+
+         <columns>
+
+            <TableColumn fx:id="passportColumn"
+                         prefWidth="180"
+                         text="Passport"/>
+
+            <TableColumn fx:id="countryColumn"
+                         prefWidth="180"
+                         text="Country"/>
+
+            <TableColumn fx:id="entryDateColumn"
+                         prefWidth="180"
+                         text="Entry Date"/>
+
+            <TableColumn fx:id="exitDateColumn"
+                         prefWidth="180"
+                         text="Exit Date"/>
+
+            <TableColumn fx:id="statusColumn"
+                         prefWidth="280"
+                         text="Travel Status"/>
+
+         </columns>
+
+      </TableView>
+
+      <!-- Buttons -->
+
+      <HBox layoutX="290"
+            layoutY="580"
+            spacing="20">
+
+         <children>
+
+            <Button fx:id="searchButton"
+                    text="Search"
+                    onAction="#searchHistory"
+                    prefWidth="120"
+                    style="-fx-background-color:#1565C0;
+                               -fx-text-fill:white;
+                               -fx-font-weight:bold;"/>
+
+            <Button fx:id="filterButton"
+                    text="Filter"
+                    onAction="#filterHistory"
+                    prefWidth="120"
+                    style="-fx-background-color:#EF6C00;
+                               -fx-text-fill:white;
+                               -fx-font-weight:bold;"/>
+
+            <Button fx:id="exportButton"
+                    text="Export"
+                    onAction="#exportHistory"
+                    prefWidth="120"
+                    style="-fx-background-color:#2E7D32;
+                               -fx-text-fill:white;
+                               -fx-font-weight:bold;"/>
+
+            <Button fx:id="clearButton"
+                    text="Clear"
+                    onAction="#clearFields"
+                    prefWidth="120"
+                    style="-fx-background-color:#C62828;
+                               -fx-text-fill:white;
+                               -fx-font-weight:bold;"/>
+
+         </children>
+
+      </HBox>
+
+      <!-- Status -->
+
+      <Label fx:id="statusLabel"
+             layoutX="350"
+             layoutY="650"
+             prefWidth="500"
+             text="Ready..."
+             style="-fx-font-size:16;
+                      -fx-font-weight:bold;
+                      -fx-text-fill:#0A2E5C;"/>
+
+   </children>
+
+</AnchorPane>

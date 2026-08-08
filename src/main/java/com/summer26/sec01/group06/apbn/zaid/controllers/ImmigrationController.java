@@ -3,171 +3,171 @@ package com.summer26.sec01.group06.apbn.zaid.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import com.summer26.sec01.group06.apbn.zaid.models.Passenger;
-import com.summer26.sec01.group06.apbn.zaid.services.ImmigrationService;
-import java.io.FileOutputStream;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
 import java.io.IOException;
-import java.io.ObjectOutputStream;
+
 public class ImmigrationController {
+    @javafx.fxml.FXML
+    private Label dashboardLabel;
+    @javafx.fxml.FXML
+    private Button checkpointButton;
+    @javafx.fxml.FXML
+    private Button passengerVerificationButton;
+    @javafx.fxml.FXML
+    private Button travelHistoryButton;
+    @javafx.fxml.FXML
+    private Button flaggedPassengersButton;
+    @javafx.fxml.FXML
+    private Button rejectPassengerButton;
+    @javafx.fxml.FXML
+    private Button documentVerificationButton;
+    @javafx.fxml.FXML
+    private Button reportsButton;
+    @javafx.fxml.FXML
+    private Button approvalButton;
 
-    @FXML
-    private TextField passengerNameField;
+    // ==========================
+    // Reusable Page Loader
+    // ==========================
 
-    @FXML
-    private TextField passportField;
+    private void loadPage(ActionEvent event, String fxmlFile) throws IOException {
 
-    @FXML
-    private TextField searchPassportField;
+        Parent root = FXMLLoader.load(getClass().getResource(
+                "/com/summer26/sec01/group06/apbn/zaid/view/" + fxmlFile));
 
-    @FXML
-    private ComboBox<String> visaStatusCombo;
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-    @FXML
-    private Label statusLabel;
-
-    private final ImmigrationService immigrationService = new ImmigrationService();
-    @FXML
-    private Button clearButton;
-    @FXML
-    private Button verifyButton;
-    @FXML
-    private Button approveButton;
-    @FXML
-    private Button rejectButton;
-    @FXML
-    private Button searchButton;
-    @FXML
-    private Button saveButton;
-
-    @FXML
-    public void initialize() {
-
-        visaStatusCombo.getItems().addAll(
-                "Valid",
-                "Expired",
-                "Pending"
-        );
-
-        visaStatusCombo.setValue("Valid");
-
-        statusLabel.setText("Ready...");
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
+    // ==========================
+    // Back Button
+    // ==========================
 
-    @FXML
-    public void clearButton(ActionEvent actionEvent) {
-        passengerNameField.clear();
-        passportField.clear();
-        visaStatusCombo.setValue("Valid");
+    public void backButton(ActionEvent event) throws IOException {
 
-        statusLabel.setText("Ready...");
-    }
-
-    @FXML
-    public void verifyButton(ActionEvent actionEvent) {
-        String name = passengerNameField.getText().trim();
-        String passport = passportField.getText().trim();
-        String visaStatus = visaStatusCombo.getValue();
-
-        if (name.isEmpty() || passport.isEmpty()) {
-            statusLabel.setText("Please enter passenger name and passport number.");
-            return;
-        }
-
-        if ("Valid".equals(visaStatus)) {
-            statusLabel.setText("Passenger Verified Successfully.");
-        } else {
-            statusLabel.setText("Verification Failed: Visa is " + visaStatus);
-        }
-    }
-
-    @FXML
-    public void rejectButton(ActionEvent actionEvent) {
-        String name = passengerNameField.getText().trim();
-
-        if (name.isEmpty()) {
-            statusLabel.setText("No passenger selected.");
-            return;
-        }
-
-        statusLabel.setText("Passenger Rejected.");
+        // Change this later when connected to your main dashboard
+        loadPage(event, "login.fxml");
 
     }
 
-    @FXML
-    public void approveButton(ActionEvent actionEvent) {
-        String name = passengerNameField.getText().trim();
-        String passport = passportField.getText().trim();
-        String visaStatus = visaStatusCombo.getValue();
+    // ==========================
+    // Goal 1
+    // Passenger Verification
+    // ==========================
 
-        if (name.isEmpty() || passport.isEmpty()) {
-            statusLabel.setText("Please verify passenger details first.");
-            return;
-        }
+    @javafx.fxml.FXML
+    public void openPassengerVerification(ActionEvent event) throws IOException {
 
-        if ("Valid".equals(visaStatus)) {
-            statusLabel.setText("Passenger Approved for Departure.");
-        } else {
-            statusLabel.setText("Cannot approve. Passenger verification failed.");
-        }
-    }
-
-    @FXML
-    public void searchButton(ActionEvent actionEvent) {
-
-        String passport = searchPassportField.getText().trim();
-
-        if (passport.isEmpty()) {
-            statusLabel.setText("Enter passport number.");
-            return;
-        }
-
-        if (passport.equalsIgnoreCase("P12345")) {
-
-            passengerNameField.setText("Zaid Khan");
-            passportField.setText("P12345");
-            visaStatusCombo.setValue("Valid");
-
-            statusLabel.setText("Passenger Found.");
-
-        } else {
-
-            statusLabel.setText("Passenger Not Found.");
-
-        }
+        loadPage(event, "passenger-verification.fxml");
 
     }
 
-    @FXML
-    public void saveButton(ActionEvent actionEvent) {
+    // ==========================
+    // Goal 2
+    // Document Verification
+    // ==========================
 
-        Passenger passenger = new Passenger(
-                passengerNameField.getText(),
-                passportField.getText(),
-                visaStatusCombo.getValue()
-        );
+    public void openDocumentVerification(ActionEvent event) throws IOException {
 
-        try {
-
-            ObjectOutputStream out =
-                    new ObjectOutputStream(
-                            new FileOutputStream("data/passengers.bin")
-                    );
-
-            out.writeObject(passenger);
-
-            out.close();
-
-            statusLabel.setText("Passenger saved successfully.");
-
-        } catch (IOException e) {
-
-            statusLabel.setText("Error saving passenger.");
-
-        }
+        loadPage(event, "document-verification.fxml");
 
     }
+
+    // ==========================
+    // Goal 3
+    // Approve Entry / Exit
+    // ==========================
+
+    @javafx.fxml.FXML
+    public void openApproval(ActionEvent event) throws IOException {
+
+        loadPage(event, "entry-exit-approval.fxml");
+
+    }
+
+    // ==========================
+    // Goal 4
+    // Reject Passenger
+    // ==========================
+
+    public void openRejectPassenger(ActionEvent event) throws IOException {
+
+        loadPage(event, "reject-passenger.fxml");
+
+    }
+
+    // ==========================
+    // Goal 5
+    // Travel History
+    // ==========================
+
+    @javafx.fxml.FXML
+    public void openTravelHistory(ActionEvent event) throws IOException {
+
+        loadPage(event, "travel-history.fxml");
+
+    }
+
+    // ==========================
+    // Goal 6
+    // Immigration Reports
+    // ==========================
+
+    @javafx.fxml.FXML
+    public void openReports(ActionEvent event) throws IOException {
+
+        loadPage(event, "immigration-reports.fxml");
+
+    }
+
+    // ==========================
+    // Goal 7
+    // Flagged Passengers
+    // ==========================
+
+    @javafx.fxml.FXML
+    public void openFlaggedPassengers(ActionEvent event) throws IOException {
+
+        loadPage(event, "flagged-passengers.fxml");
+
+    }
+
+    // ==========================
+    // Goal 8
+    // Checkpoint Management
+    // ==========================
+
+    @javafx.fxml.FXML
+    public void openCheckpointManagement(ActionEvent event) throws IOException {
+
+        loadPage(event, "checkpoint-management.fxml");
+
+    }
+    // ==========================
+    // Logout
+    // ==========================
+
+    @FXML
+    public void logout(ActionEvent event) throws IOException {
+
+        Parent root = FXMLLoader.load(getClass().getResource(
+                "/com/summer26/sec01/group06/apbn/fxml/login.fxml"));
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        stage.setScene(new Scene(root));
+        stage.setTitle("APBN Airport Security System");
+        stage.show();
+    }
+
+
+
 }
